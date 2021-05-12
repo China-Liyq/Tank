@@ -11,7 +11,7 @@ import com.chinaliyq.view.TankFrame;
  * @Version: 1.0
  **/
 public abstract class GameFactory {
-    public abstract AbstractTank createTank(int x, int y, Direction direction, Group grou, TankFrame tankFrame);
+    public abstract BaseTank createTank(int x, int y, Direction direction, Group grou, TankFrame tankFrame);
     public abstract BaseBullet createBullet(int x, int y, TankFrame tankFrame);
-    public abstract AbstractExplode createExplode(int x, int y, TankFrame tankFrame);
+    public abstract BaseExplode createExplode(int x, int y, TankFrame tankFrame);
 }

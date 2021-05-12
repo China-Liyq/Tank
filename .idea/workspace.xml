@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0ffe405-64bd-4ccb-955e-e61c73971f47" name="Default Changelist" comment="" />
+    <list default="true" id="e0ffe405-64bd-4ccb-955e-e61c73971f47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/AbstractExplode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/BaseExplode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/AbstractTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/BaseTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/BaseBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/BaseBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/GameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/GameFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/entity/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/entity/Bullet.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,6 +27,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -34,6 +45,7 @@
     </option>
   </component>
   <component name="ProjectId" id="1sFAtMAGkIYYAJ4Tt9Gi52jZHUh" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -41,6 +53,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
@@ -159,7 +172,7 @@
       <workItem from="1620458180735" duration="17279000" />
       <workItem from="1620518984110" duration="24298000" />
       <workItem from="1620566941884" duration="8467000" />
-      <workItem from="1620776081646" duration="14987000" />
+      <workItem from="1620776081646" duration="16236000" />
     </task>
     <servers />
   </component>
@@ -167,26 +180,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1620803135616">
+    <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1620811868291">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620803135616" />
-    <state width="1877" height="262" key="GridCell.Tab.0.bottom" timestamp="1620805514956">
+    <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620811868291" />
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom" timestamp="1620811151109">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514956" />
-    <state width="1877" height="262" key="GridCell.Tab.0.center" timestamp="1620805514953">
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620811151109" />
+    <state width="1877" height="262" key="GridCell.Tab.0.center" timestamp="1620811151104">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514953" />
-    <state width="1877" height="262" key="GridCell.Tab.0.left" timestamp="1620805514953">
+    <state width="1877" height="262" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620811151104" />
+    <state width="1877" height="262" key="GridCell.Tab.0.left" timestamp="1620811151102">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514953" />
-    <state width="1877" height="262" key="GridCell.Tab.0.right" timestamp="1620805514955">
+    <state width="1877" height="262" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620811151102" />
+    <state width="1877" height="262" key="GridCell.Tab.0.right" timestamp="1620811151106">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="262" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514955" />
+    <state width="1877" height="262" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620811151106" />
     <state x="2543" y="225" key="search.everywhere.popup" timestamp="1620458943114">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
