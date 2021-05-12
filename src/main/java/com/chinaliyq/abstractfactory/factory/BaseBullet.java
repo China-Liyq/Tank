@@ -1,5 +1,6 @@
 package com.chinaliyq.abstractfactory.factory;
 
+import com.chinaliyq.abstractfactory.bean.RectTank;
 import com.chinaliyq.util.Group;
 import com.sun.xml.internal.bind.v2.model.core.ID;
 
@@ -20,7 +21,7 @@ public abstract class BaseBullet {
 
     public abstract void paint(Graphics g);
 
-    public abstract void collideWith(BaseTank tank);
+    public abstract void collideWith(RectTank tank);
 
     public abstract void die();
 }
