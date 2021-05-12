@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e0ffe405-64bd-4ccb-955e-e61c73971f47" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Tank" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\Program Files\repository" />
+        <option name="mavenHome" value="E:/Program Files/apache-maven-3.5.4" />
+        <option name="userSettingsFile" value="E:\Program Files\apache-maven-3.5.4\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1sFAtMAGkIYYAJ4Tt9Gi52jZHUh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RebelAgentSelection">
+    <selection>jr</selection>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\GitHub\Tank\src\main\resources" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\GitHub\Tank\src\main\resources" />
+      <recent name="F:\GitHub\Tank\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.chinaliyq.App" />
+      <module name="Tank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinaliyq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.newTank" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinaliyq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinaliyq" />
+      <option name="MAIN_CLASS_NAME" value="com.chinaliyq.AppTest" />
+      <option name="METHOD_NAME" value="newTank" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.propertyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinaliyq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinaliyq" />
+      <option name="MAIN_CLASS_NAME" value="com.chinaliyq.AppTest" />
+      <option name="METHOD_NAME" value="propertyTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinaliyq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinaliyq" />
+      <option name="MAIN_CLASS_NAME" value="com.chinaliyq.AppTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppTest.testAudio" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Tank" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.chinaliyq.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.chinaliyq" />
+      <option name="MAIN_CLASS_NAME" value="com.chinaliyq.AppTest" />
+      <option name="METHOD_NAME" value="testAudio" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.App" />
+        <item itemvalue="JUnit.AppTest.propertyTest" />
+        <item itemvalue="JUnit.AppTest.newTank" />
+        <item itemvalue="JUnit.AppTest.testAudio" />
+        <item itemvalue="JUnit.AppTest.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\xiaoyan\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e0ffe405-64bd-4ccb-955e-e61c73971f47" name="Default Changelist" comment="" />
+      <created>1620458177669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620458177669</updated>
+      <workItem from="1620458180735" duration="17279000" />
+      <workItem from="1620518984110" duration="24298000" />
+      <workItem from="1620566941884" duration="8467000" />
+      <workItem from="1620776081646" duration="14987000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1620803135616">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620803135616" />
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom" timestamp="1620805514956">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="262" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514956" />
+    <state width="1877" height="262" key="GridCell.Tab.0.center" timestamp="1620805514953">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="262" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514953" />
+    <state width="1877" height="262" key="GridCell.Tab.0.left" timestamp="1620805514953">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="262" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514953" />
+    <state width="1877" height="262" key="GridCell.Tab.0.right" timestamp="1620805514955">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="262" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620805514955" />
+    <state x="2543" y="225" key="search.everywhere.popup" timestamp="1620458943114">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2543" y="225" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620458943114" />
+  </component>
+</project>
