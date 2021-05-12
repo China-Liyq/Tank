@@ -1,5 +1,6 @@
 package com.chinaliyq;
 
+import com.chinaliyq.abstractfactory.controller.MainController;
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
@@ -14,10 +15,13 @@ public class App
 {
     public static void main( String[] args ) {
         System.out.println( "Hello World!" );
-        int initTankCount = Integer.parseInt((String) PropertyMgr.getValue("initTankCount"));
+//        baseVersion();
+        new MainController().start();
+    }
+
+    private static void baseVersion() {
         TankFrame tankFrame = new TankFrame();
-
-
+        int initTankCount = Integer.parseInt((String) PropertyMgr.getValue("initTankCount"));
         for (int i = 0; i < initTankCount; i++) {
             tankFrame.tanks.add(new Tank(50 + i * 100, 150, Direction.DOWN, Group.BAD, tankFrame,true));
         }

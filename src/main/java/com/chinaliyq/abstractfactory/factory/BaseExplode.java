@@ -1,4 +1,4 @@
-package com.chinaliyq.abstractfactory;
+package com.chinaliyq.abstractfactory.factory;
 
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.util.Group;

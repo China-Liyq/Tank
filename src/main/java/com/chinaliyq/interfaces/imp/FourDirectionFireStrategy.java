@@ -1,5 +1,7 @@
 package com.chinaliyq.interfaces.imp;
 
+import com.chinaliyq.abstractfactory.bean.RectBullet;
+import com.chinaliyq.abstractfactory.bean.RectTank;
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.interfaces.FireStrategy;
@@ -44,6 +46,41 @@ public class FourDirectionFireStrategy implements FireStrategy {
         t.getTankFrame().bullets.add(bullet2);
         t.getTankFrame().bullets.add(bullet3);
         t.getTankFrame().bullets.add(bullet4);
+        //队友不能打队友
+        if (t.getGroup() == Group.GOOD)
+            new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
+
+    }
+
+    @Override
+    public void factoryfire(RectTank t) {
+        //获取枪口中心的位置
+        switch (t.getDir()){
+            case LEFT:
+                tankCenterX = t.getX() + 0;
+                tankCenterY = t.getY() + t.getBufferedImage().getHeight() / 2;
+                break;
+            case UP:
+                tankCenterX = t.getX() + t.getBufferedImage().getWidth() / 2;
+                tankCenterY = t.getY() + 0;
+                break;
+            case RIGHT:
+                tankCenterX = t.getX() + t.getBufferedImage().getWidth();
+                tankCenterY = t.getY() + t.getBufferedImage().getHeight() / 2;
+                break;
+            case DOWN:
+                tankCenterX = t.getX() + t.getBufferedImage().getWidth() / 2;
+                tankCenterY = t.getY() + t.getBufferedImage().getHeight();
+                break;
+        }
+        RectBullet bullet1 = new RectBullet(tankCenterX, tankCenterY, Direction.UP,t.getGroup(), t.getGameFrame(),t.ID);
+        RectBullet bullet2 = new RectBullet(tankCenterX, tankCenterY, Direction.DOWN,t.getGroup(), t.getGameFrame(),t.ID);
+        RectBullet bullet3 = new RectBullet(tankCenterX, tankCenterY, Direction.RIGHT,t.getGroup(), t.getGameFrame(),t.ID);
+        RectBullet bullet4 = new RectBullet(tankCenterX, tankCenterY, Direction.LEFT,t.getGroup(), t.getGameFrame(),t.ID);
+        t.getGameFrame().getBullets().add(bullet1);
+        t.getGameFrame().getBullets().add(bullet2);
+        t.getGameFrame().getBullets().add(bullet3);
+        t.getGameFrame().getBullets().add(bullet4);
         //队友不能打队友
         if (t.getGroup() == Group.GOOD)
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();

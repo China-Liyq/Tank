@@ -1,5 +1,6 @@
 package com.chinaliyq.interfaces;
 
+import com.chinaliyq.abstractfactory.bean.RectTank;
 import com.chinaliyq.entity.Tank;
 
 /**
@@ -11,5 +12,6 @@ import com.chinaliyq.entity.Tank;
 public interface FireStrategy {
     void fire(Tank t);
 
+    void factoryfire(RectTank rectTank);
 
 }
