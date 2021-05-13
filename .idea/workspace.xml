@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="e0ffe405-64bd-4ccb-955e-e61c73971f47" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="76067f2d-278a-4653-969d-4e56ad9cc50e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/GameObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/DefualtBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/DefualtBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/DefualtExplode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/DefualtExplode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectExplode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectExplode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/controller/GameModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/controller/GameModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseExplode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseExplode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseTank.java" afterDir="false" />
+    </list>
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,9 +28,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+<<<<<<< Updated upstream
         <option value="Enum" />
         <option value="Class" />
         <option value="Interface" />
+=======
+        <option value="Class" />
+>>>>>>> Stashed changes
       </list>
     </option>
   </component>
@@ -155,11 +174,16 @@
       <created>1620458177669</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
+<<<<<<< Updated upstream
       <updated>1620458177669</updated>
       <workItem from="1620458180735" duration="17279000" />
       <workItem from="1620518984110" duration="24298000" />
       <workItem from="1620566941884" duration="8467000" />
       <workItem from="1620776081646" duration="14987000" />
+=======
+      <updated>1620911184263</updated>
+      <workItem from="1620911186431" duration="2455000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -167,7 +191,39 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+<<<<<<< Updated upstream
     <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser" timestamp="1620803135616">
+=======
+    <state x="2472" y="181" key="#Project_Structure" timestamp="1620912061379">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2472" y="181" key="#Project_Structure/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620912061379" />
+    <state x="2334" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1620911837778">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2334" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620911837778" />
+    <state x="2685" y="213" key="#com.intellij.ide.util.MemberChooser" timestamp="1620913503886">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2685" y="213" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620913503886" />
+    <state x="2492" y="116" key="CommitChangelistDialog2" timestamp="1620912691611">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2492" y="116" key="CommitChangelistDialog2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620912691611" />
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1620912484467">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620912484467" />
+    <state x="2117" y="252" key="FileChooserDialogImpl" timestamp="1620912573845">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2117" y="252" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620912573845" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1620912670837">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620912670837" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1620912670834">
+>>>>>>> Stashed changes
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2685" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620803135616" />
