@@ -15,8 +15,8 @@ public class App
 {
     public static void main( String[] args ) {
         System.out.println( "Hello World!" );
-        new MainController().start();
 //        baseVersion();
+        new MainController().start();
     }
 
     private static void baseVersion() {
