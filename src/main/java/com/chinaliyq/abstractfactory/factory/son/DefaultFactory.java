@@ -1,5 +1,6 @@
 package com.chinaliyq.abstractfactory.factory.son;
 
+import com.chinaliyq.abstractfactory.bean.DefualtBullet;
 import com.chinaliyq.abstractfactory.bean.DefualtExplode;
 import com.chinaliyq.abstractfactory.bean.RectBullet;
 import com.chinaliyq.abstractfactory.bean.RectTank;
@@ -30,7 +31,7 @@ public class DefaultFactory extends GameFactory {
 
     @Override
     public BaseBullet createBullet(int x, int y, Direction dir, Group group, GameFrame gameFrame, int id) {
-        return new RectBullet(x,y,dir,group,gameFrame,id);
+        return new DefualtBullet(x,y,dir,group,gameFrame,id);
     }
 
     @Override

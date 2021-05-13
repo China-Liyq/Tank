@@ -44,7 +44,9 @@ public class GameFrame extends Frame {
     private BaseTank player_two;
 
     public GameFrame(){
+        //更改爆炸
         this.loadFactoy(defaultFactory);
+//        this.loadFactoy(specialFactory);
 
         setSize(GAME_WIDTH,GAME_HEIGHT);
         setResizable(false);

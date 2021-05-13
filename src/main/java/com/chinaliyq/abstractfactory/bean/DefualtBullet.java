@@ -19,7 +19,7 @@ import java.awt.image.BufferedImage;
  * @Version: 1.0
  **/
 //@SuppressWarnings("all")
-public class RectBullet extends BaseBullet {
+public class DefualtBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
     private int x, y;
     private Direction dir;
@@ -27,30 +27,36 @@ public class RectBullet extends BaseBullet {
     private boolean live = true;
     private BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
+    private int fillWidth = 20,fillHeight = 20;
 
     @Override
     public void paint(Graphics g) {
         if (!live){
             gameFrame.getBullets().remove(this);
         }
-        switch (dir){
-            case LEFT:
-                bufferedImage = ResourceMgr.bulletLeft;
-                break;
-            case UP:
-                bufferedImage = ResourceMgr.bulletUp;
-                break;
-            case RIGHT:
-                bufferedImage = ResourceMgr.bulletRight;
-                break;
-            case DOWN:
-                bufferedImage = ResourceMgr.bulletDown;
-                break;
-        }
-        //x，y坐标
-        bulletCenterX = this.x - bufferedImage.getWidth() / 2 ;
-        bulletCenterY = this.y - bufferedImage.getHeight() / 2 ;
-        g.drawImage(bufferedImage,bulletCenterX,bulletCenterY,null);
+//        switch (dir){
+//            case LEFT:
+//                bufferedImage = ResourceMgr.bulletLeft;
+//                break;
+//            case UP:
+//                bufferedImage = ResourceMgr.bulletUp;
+//                break;
+//            case RIGHT:
+//                bufferedImage = ResourceMgr.bulletRight;
+//                break;
+//            case DOWN:
+//                bufferedImage = ResourceMgr.bulletDown;
+//                break;
+//        }
+//        //x，y坐标
+//        bulletCenterX = this.x - bufferedImage.getWidth() / 2 ;
+//        bulletCenterY = this.y - bufferedImage.getHeight() / 2 ;
+//        g.drawImage(bufferedImage,bulletCenterX,bulletCenterY,null);
+        Color color = g.getColor();
+        Color yellow = Color.YELLOW;
+        g.setColor(yellow);
+        g.fillRect(this.x-10,this.y-10,fillWidth,fillHeight);
+        g.setColor(color);
         move();
         updateRectangle();
     }
@@ -119,14 +125,14 @@ public class RectBullet extends BaseBullet {
                 '}';
     }
 
-    public RectBullet(int x, int y, Direction dir, Group group, GameFrame tankFrame) {
+    public DefualtBullet(int x, int y, Direction dir, Group group, GameFrame tankFrame) {
         this.x = x;
         this.y = y;
         this.dir = dir;
         this.gameFrame = tankFrame;
         this.group = group;
     }
-    public RectBullet(int x, int y, Direction dir, Group group, GameFrame tankFrame,int id) {
+    public DefualtBullet(int x, int y, Direction dir, Group group, GameFrame tankFrame, int id) {
         this.x = x;
         this.y = y;
         this.dir = dir;
@@ -138,8 +144,13 @@ public class RectBullet extends BaseBullet {
     private void updateRectangle(){
         rectangle.x = x;
         rectangle.y = y;
-        rectangle.width = bufferedImage.getWidth();
-        rectangle.height = bufferedImage.getHeight();
+        if (bufferedImage!=null){
+            rectangle.width = bufferedImage.getWidth();
+            rectangle.height = bufferedImage.getHeight();
+        }else {
+            rectangle.width = fillWidth;
+            rectangle.height = fillHeight;
+        }
     }
 
     public GameFrame getGameFrame() {

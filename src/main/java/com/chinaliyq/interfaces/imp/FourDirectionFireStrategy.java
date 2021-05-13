@@ -2,6 +2,7 @@ package com.chinaliyq.interfaces.imp;
 
 import com.chinaliyq.abstractfactory.bean.RectBullet;
 import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.factory.BaseBullet;
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.interfaces.FireStrategy;
@@ -73,10 +74,10 @@ public class FourDirectionFireStrategy implements FireStrategy {
                 tankCenterY = t.getY() + t.getBufferedImage().getHeight();
                 break;
         }
-        RectBullet bullet1 = new RectBullet(tankCenterX, tankCenterY, Direction.UP,t.getGroup(), t.getGameFrame(),t.ID);
-        RectBullet bullet2 = new RectBullet(tankCenterX, tankCenterY, Direction.DOWN,t.getGroup(), t.getGameFrame(),t.ID);
-        RectBullet bullet3 = new RectBullet(tankCenterX, tankCenterY, Direction.RIGHT,t.getGroup(), t.getGameFrame(),t.ID);
-        RectBullet bullet4 = new RectBullet(tankCenterX, tankCenterY, Direction.LEFT,t.getGroup(), t.getGameFrame(),t.ID);
+        BaseBullet bullet1 = t.getGameFrame().getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.UP, t.getGroup(), t.getGameFrame(), t.ID);
+        BaseBullet bullet2 = t.getGameFrame().getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.DOWN, t.getGroup(), t.getGameFrame(), t.ID);
+        BaseBullet bullet3 = t.getGameFrame().getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.RIGHT, t.getGroup(), t.getGameFrame(), t.ID);
+        BaseBullet bullet4 = t.getGameFrame().getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.LEFT, t.getGroup(), t.getGameFrame(), t.ID);
         t.getGameFrame().getBullets().add(bullet1);
         t.getGameFrame().getBullets().add(bullet2);
         t.getGameFrame().getBullets().add(bullet3);
