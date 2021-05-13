@@ -34,24 +34,6 @@ public class DefualtBullet extends BaseBullet {
         if (!live){
             gameFrame.getBullets().remove(this);
         }
-//        switch (dir){
-//            case LEFT:
-//                bufferedImage = ResourceMgr.bulletLeft;
-//                break;
-//            case UP:
-//                bufferedImage = ResourceMgr.bulletUp;
-//                break;
-//            case RIGHT:
-//                bufferedImage = ResourceMgr.bulletRight;
-//                break;
-//            case DOWN:
-//                bufferedImage = ResourceMgr.bulletDown;
-//                break;
-//        }
-//        //x，y坐标
-//        bulletCenterX = this.x - bufferedImage.getWidth() / 2 ;
-//        bulletCenterY = this.y - bufferedImage.getHeight() / 2 ;
-//        g.drawImage(bufferedImage,bulletCenterX,bulletCenterY,null);
         Color color = g.getColor();
         Color yellow = Color.YELLOW;
         g.setColor(yellow);

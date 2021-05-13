@@ -1,6 +1,7 @@
 package com.chinaliyq.abstractfactory.controller;
 
 import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.factory.BaseTank;
 import com.chinaliyq.abstractfactory.view.GameFrame;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
@@ -19,8 +20,10 @@ public class MainController {
         int badTankCount = Integer.parseInt((String) PropertyMgr.getValue("initTankCount"));
 
         for (int i = 0; i < badTankCount; i++) {
-            RectTank badTank = new RectTank(50 + 80 * i, 200, Direction.DOWN, Group.BAD, gameFrame, true);
-            gameFrame.getTanks().add(badTank);
+            BaseTank tank = gameFrame.getGameFactory().createTank(50 + 80 * i, 200, Direction.DOWN, Group.BAD, gameFrame,0);
+            tank.moving = true;
+//            RectTank badTank = new RectTank(50 + 80 * i, 200, Direction.DOWN, Group.BAD, gameFrame, true);
+            gameFrame.getTanks().add(tank);
         }
         while (true){
             try {
