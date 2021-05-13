@@ -1,8 +1,8 @@
 package com.chinaliyq.entity;
 
-import com.chinaliyq.interfaces.FireStrategy;
-import com.chinaliyq.interfaces.imp.DefaultFireStrategy;
-import com.chinaliyq.interfaces.imp.FourDirectionFireStrategy;
+import com.chinaliyq.abstractfactory.interfaces.FireStrategy;
+import com.chinaliyq.abstractfactory.interfaces.imp.DefaultFireStrategy;
+import com.chinaliyq.abstractfactory.interfaces.imp.FourDirectionFireStrategy;
 import com.chinaliyq.util.*;
 import com.chinaliyq.view.TankFrame;
 

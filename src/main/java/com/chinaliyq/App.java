@@ -1,5 +1,9 @@
 package com.chinaliyq;
 
+<<<<<<< Updated upstream
+=======
+import com.chinaliyq.abstractfactory.view.MainController;
+>>>>>>> Stashed changes
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
@@ -14,6 +18,15 @@ public class App
 {
     public static void main( String[] args ) {
         System.out.println( "Hello World!" );
+<<<<<<< Updated upstream
+=======
+        new MainController().start();
+//        baseVersion();
+    }
+
+    private static void baseVersion() {
+        TankFrame tankFrame = new TankFrame();
+>>>>>>> Stashed changes
         int initTankCount = Integer.parseInt((String) PropertyMgr.getValue("initTankCount"));
         TankFrame tankFrame = new TankFrame();
 

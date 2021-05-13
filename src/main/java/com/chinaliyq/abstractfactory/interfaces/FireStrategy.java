@@ -1,4 +1,4 @@
-package com.chinaliyq.interfaces;
+package com.chinaliyq.abstractfactory.interfaces;
 
 import com.chinaliyq.entity.Tank;
 
