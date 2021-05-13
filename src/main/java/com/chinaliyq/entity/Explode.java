@@ -34,11 +34,11 @@ public class Explode {
 
     private int step = 0;
     public void paint(Graphics g) {
-        bufferedImage = ResourceMgr.explodes[step++];
+        bufferedImage = ResourceMgr.specialExplodes[step++];
         explodeCenterX = this.x - bufferedImage.getWidth() / 2;
         explodeCenterY = this.y - bufferedImage.getHeight() / 2;
         g.drawImage(bufferedImage,explodeCenterX,explodeCenterY,null);
-        if (step >= ResourceMgr.explodes.length){
+        if (step >= ResourceMgr.specialExplodes.length){
            tankFrame.getExplodes().remove(this);
         }
     }

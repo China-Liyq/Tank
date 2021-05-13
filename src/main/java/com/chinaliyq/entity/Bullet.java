@@ -25,6 +25,7 @@ public class Bullet {
     private boolean live = true;
     private BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
+
     private Group group = Group.BAD;
     private Rectangle rectangle = new Rectangle();
 

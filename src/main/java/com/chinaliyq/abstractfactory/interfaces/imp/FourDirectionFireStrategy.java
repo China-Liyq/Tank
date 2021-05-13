@@ -1,10 +1,7 @@
 package com.chinaliyq.abstractfactory.interfaces.imp;
 
-<<<<<<< Updated upstream:src/main/java/com/chinaliyq/interfaces/imp/FourDirectionFireStrategy.java
-=======
 import com.chinaliyq.abstractfactory.bean.RectTank;
 import com.chinaliyq.abstractfactory.factory.BaseBullet;
->>>>>>> Stashed changes:src/main/java/com/chinaliyq/abstractfactory/interfaces/imp/FourDirectionFireStrategy.java
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.abstractfactory.interfaces.FireStrategy;
@@ -54,8 +51,6 @@ public class FourDirectionFireStrategy implements FireStrategy {
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
 
     }
-<<<<<<< Updated upstream:src/main/java/com/chinaliyq/interfaces/imp/FourDirectionFireStrategy.java
-=======
 
     @Override
     public void factoryfire(RectTank t) {
@@ -91,5 +86,4 @@ public class FourDirectionFireStrategy implements FireStrategy {
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
 
     }
->>>>>>> Stashed changes:src/main/java/com/chinaliyq/abstractfactory/interfaces/imp/FourDirectionFireStrategy.java
 }

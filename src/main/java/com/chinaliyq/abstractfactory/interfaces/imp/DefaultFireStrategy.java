@@ -1,5 +1,7 @@
 package com.chinaliyq.abstractfactory.interfaces.imp;
 
+import com.chinaliyq.abstractfactory.bean.RectBullet;
+import com.chinaliyq.abstractfactory.bean.RectTank;
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.abstractfactory.interfaces.FireStrategy;
@@ -43,8 +45,6 @@ public class DefaultFireStrategy implements FireStrategy {
 
     }
 
-<<<<<<< Updated upstream:src/main/java/com/chinaliyq/interfaces/imp/DefaultFireStrategy.java
-=======
     @Override
     public void factoryfire(RectTank tank) {
         //获取枪口中心的位置
@@ -73,5 +73,4 @@ public class DefaultFireStrategy implements FireStrategy {
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
     }
 
->>>>>>> Stashed changes:src/main/java/com/chinaliyq/abstractfactory/interfaces/imp/DefaultFireStrategy.java
 }
