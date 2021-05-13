@@ -56,9 +56,9 @@ public class RectBullet extends BaseBullet {
     }
 
     @Override
-    public void collideWith(RectTank tank) {
+    public void collideWith(BaseTank tank) {
         if (this.group == tank.getGroup())return;
-        if (rectangle.intersects(tank.rectangle) && this.live == true && tank.isLive() == true){
+        if (rectangle.intersects(tank.rectangle) && this.live == true && tank.live == true){
             this.die();
             tank.die();
             countPlayerScore();

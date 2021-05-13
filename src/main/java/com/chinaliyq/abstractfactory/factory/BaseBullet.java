@@ -13,6 +13,7 @@ import java.awt.*;
  * @Version: 1.0
  **/
 public abstract class BaseBullet {
+
     public Rectangle rectangle = new Rectangle();
 
     public Group group = Group.BAD;
@@ -21,7 +22,7 @@ public abstract class BaseBullet {
 
     public abstract void paint(Graphics g);
 
-    public abstract void collideWith(RectTank tank);
+    public abstract void collideWith(BaseTank tank);
 
     public abstract void die();
 }

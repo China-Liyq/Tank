@@ -4,7 +4,9 @@ import com.chinaliyq.abstractfactory.factory.BaseTank;
 import com.chinaliyq.abstractfactory.view.GameFrame;
 import com.chinaliyq.entity.Explode;
 import com.chinaliyq.interfaces.FireStrategy;
+import com.chinaliyq.interfaces.IExplode;
 import com.chinaliyq.interfaces.imp.DefaultFireStrategy;
+import com.chinaliyq.interfaces.imp.DefaultIExplode;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 import com.chinaliyq.util.PropertyMgr;
@@ -21,18 +23,15 @@ import java.awt.image.BufferedImage;
  * @Version: 1.0
  **/
 public class RectTank extends BaseTank {
-    private int x, y;
-    private Direction dir = Direction.UP;
     private final static int SPEED = Integer.parseInt((String)PropertyMgr.getValue("tankSpeed"));
-    private boolean moving = false;
-    //持有画板来画画
-    private GameFrame gameFrame = null;
-    private boolean live = true;
     private int index = 0;
     private int count = 0;
     private int boundsWith = 8;
     private BufferedImage bufferedImage;
+
     private FireStrategy fireStrategy;
+    private IExplode explode;
+
     private BufferedImage[] TankLefts;
     private BufferedImage[] TankUps;
     private BufferedImage[] TankRights;
@@ -74,9 +73,10 @@ public class RectTank extends BaseTank {
     @Override
     public void die() {
         this.live = false;
-        explodeX = this.x + bufferedImage.getWidth() / 2;
-        explodeY = this.y + bufferedImage.getHeight() / 2;
-        gameFrame.getExplodes().add(new RectExplode(explodeX,explodeY, gameFrame));
+        explode.explode(this);
+//        explodeX = this.x + bufferedImage.getWidth() / 2;
+//        explodeY = this.y + bufferedImage.getHeight() / 2;
+//        gameFrame.getExplodes().add(new RectExplode(explodeX,explodeY, gameFrame));
     }
 
     @Override
@@ -145,7 +145,7 @@ public class RectTank extends BaseTank {
         if (random.nextInt(100) > 90)
         this.dir = values[random.nextInt(values.length)];
     }
-
+    @Override
     public void fire() {
         fireStrategy.factoryfire(this);
     }
@@ -156,7 +156,7 @@ public class RectTank extends BaseTank {
         rectangle.width = bufferedImage.getWidth();
         rectangle.height = bufferedImage.getHeight();
     }
-    //获取开枪的模式
+    //获取开枪等 的模式
     private void LoadFireStrategy(){
         if (this.group == Group.GOOD){
             String goodFS = (String) PropertyMgr.getValue("goodFS");
@@ -168,6 +168,7 @@ public class RectTank extends BaseTank {
         }else {
             fireStrategy = new DefaultFireStrategy();
         }
+        explode = new DefaultIExplode();
     }
     public RectTank(int x, int y, Direction dir, Group group, GameFrame frame) {
         this.x = x;

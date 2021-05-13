@@ -5,7 +5,6 @@ import com.chinaliyq.abstractfactory.view.GameFrame;
 import com.chinaliyq.util.Audio;
 import com.chinaliyq.util.Group;
 import com.chinaliyq.util.ResourceMgr;
-import com.chinaliyq.view.TankFrame;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -27,11 +26,11 @@ public class RectExplode extends BaseExplode {
     private int step = 0;
     @Override
     public void paint(Graphics g) {
-        bufferedImage = ResourceMgr.explodes[step++];
+        bufferedImage = ResourceMgr.specialExplodes[step++];
         explodeCenterX = this.x - bufferedImage.getWidth() / 2;
         explodeCenterY = this.y - bufferedImage.getHeight() / 2;
         g.drawImage(bufferedImage,explodeCenterX,explodeCenterY,null);
-        if (step >= ResourceMgr.explodes.length){
+        if (step >= ResourceMgr.specialExplodes.length){
            gameFrame.getExplodes().remove(this);
         }
     }

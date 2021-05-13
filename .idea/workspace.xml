@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e0ffe405-64bd-4ccb-955e-e61c73971f47" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/DefualtExplode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/son/DefaultFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/son/SpecialFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/interfaces/IExplode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/interfaces/imp/DefaultIExplode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectExplode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectExplode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean/RectTank.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseBullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseBullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseTank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/BaseTank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/DefaultFactory.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/GameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/factory/GameFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/view/GameFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/view/GameFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/entity/Explode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/entity/Explode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/chinaliyq/util/ResourceMgr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/chinaliyq/util/ResourceMgr.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectBullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectExplode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectExplode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectTank$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectTank$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/bean/RectTank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/factory/BaseBullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/factory/BaseBullet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/factory/BaseTank.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/factory/BaseTank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/factory/DefaultFactory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/factory/GameFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/factory/GameFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/view/GameFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/view/GameFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/view/GameFrame$MyKeyListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/view/GameFrame$MyKeyListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/view/GameFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/abstractfactory/view/GameFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/entity/Explode.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/entity/Explode.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/chinaliyq/util/ResourceMgr.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/chinaliyq/util/ResourceMgr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/config.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -61,7 +84,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/chinaliyq/abstractfactory/bean" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="com.zeroturnaround.javarebel.idea.plugin.settings.JRebelSettingsComponent" />
   </component>
   <component name="RebelAgentSelection">
     <selection>jr</selection>
@@ -181,6 +204,9 @@
       <workItem from="1620518984110" duration="24298000" />
       <workItem from="1620566941884" duration="8467000" />
       <workItem from="1620776081646" duration="28987000" />
+      <workItem from="1620866462428" duration="235000" />
+      <workItem from="1620866751899" duration="192000" />
+      <workItem from="1620867012367" duration="7724000" />
     </task>
     <servers />
   </component>
@@ -188,10 +214,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2994" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1620829386276">
+    <state x="2994" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1620878255447">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2994" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620829386276" />
+    <state x="859" y="178" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1620868356695" />
+    <state x="2994" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620878255447" />
     <state x="2566" y="448" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1620822752555">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
@@ -200,22 +227,30 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2274" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620817936618" />
-    <state width="1877" height="205" key="GridCell.Tab.0.bottom" timestamp="1620830790436">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom" timestamp="1620880516388">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1620880516388" />
     <state width="1877" height="205" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620830790436" />
-    <state width="1877" height="205" key="GridCell.Tab.0.center" timestamp="1620830790436">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.center" timestamp="1620880516387">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="125" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1620880516387" />
     <state width="1877" height="205" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620830790436" />
-    <state width="1877" height="205" key="GridCell.Tab.0.left" timestamp="1620830790436">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state width="1493" height="125" key="GridCell.Tab.0.left" timestamp="1620880516387">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="125" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1620880516387" />
     <state width="1877" height="205" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620830790436" />
-    <state width="1877" height="205" key="GridCell.Tab.0.right" timestamp="1620830790436">
+    <state width="1493" height="125" key="GridCell.Tab.0.right" timestamp="1620880516387">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="125" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1620880516387" />
+    <state width="1877" height="205" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620830790436" />
+    <state x="2383" y="165" key="SettingsEditor" timestamp="1620867153920">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="205" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620830790436" />
+    <state x="2383" y="165" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1620867153920" />
     <state x="2610" y="279" key="extract.method.dialog" timestamp="1620821797032">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

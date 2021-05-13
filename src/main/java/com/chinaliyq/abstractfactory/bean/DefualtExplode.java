@@ -1,10 +1,10 @@
-package com.chinaliyq.entity;
+package com.chinaliyq.abstractfactory.bean;
 
-import com.chinaliyq.util.Direction;
+import com.chinaliyq.abstractfactory.factory.BaseExplode;
+import com.chinaliyq.abstractfactory.view.GameFrame;
+import com.chinaliyq.util.Audio;
 import com.chinaliyq.util.Group;
 import com.chinaliyq.util.ResourceMgr;
-import com.chinaliyq.util.Audio;
-import com.chinaliyq.view.TankFrame;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -12,63 +12,39 @@ import java.awt.image.BufferedImage;
 /**
  * @Author: liyq
  * @Description: Tank
- * @Date: 2021/5/9 - 16:59
+ * @Date: 2021/5/13 - 8:58
  * @Version: 1.0
  **/
-public class Explode {
-
-    private static final int SPEED = 10;
-    /**
-     * 坐标
-     */
+public class DefualtExplode extends BaseExplode {
     private int x, y;
-    private Direction dir;
-
     private boolean live = true;
-    private TankFrame tankFrame = null;
-
+    private GameFrame gameFrame = null;
     private BufferedImage bufferedImage;
-
     private int explodeCenterX,explodeCenterY;
     private Group group = Group.BAD;
 
     private int step = 0;
+    @Override
     public void paint(Graphics g) {
-        bufferedImage = ResourceMgr.specialExplodes[step++];
+        bufferedImage = ResourceMgr.defualtExplodes[step++];
         explodeCenterX = this.x - bufferedImage.getWidth() / 2;
         explodeCenterY = this.y - bufferedImage.getHeight() / 2;
         g.drawImage(bufferedImage,explodeCenterX,explodeCenterY,null);
-        if (step >= ResourceMgr.specialExplodes.length){
-           tankFrame.getExplodes().remove(this);
+        if (step >= ResourceMgr.defualtExplodes.length){
+            gameFrame.getExplodes().remove(this);
         }
     }
 
-
-
-
-
-    public Explode(int x, int y, TankFrame tankFrame) {
+    public DefualtExplode(int x, int y, GameFrame gameFrame) {
         this.x = x;
         this.y = y;
-        this.tankFrame = tankFrame;
-
+        this.gameFrame = gameFrame;
         Audio audio = new Audio("audio/explode.wav");
         audio.start();
     }
+    @Override
     public void die(){
         this.live = false;
-    }
-
-    public Explode(int x, int y, Direction dir, Group group, TankFrame tankFrame) {
-        this.x = x;
-        this.y = y;
-        this.dir = dir;
-        this.tankFrame = tankFrame;
-        this.group = group;
-    }
-
-    public static int getSPEED() {
-        return SPEED;
     }
 
     public int getX() {
@@ -87,14 +63,6 @@ public class Explode {
         this.y = y;
     }
 
-    public Direction getDir() {
-        return dir;
-    }
-
-    public void setDir(Direction dir) {
-        this.dir = dir;
-    }
-
     public boolean isLive() {
         return live;
     }
@@ -103,12 +71,20 @@ public class Explode {
         this.live = live;
     }
 
-    public TankFrame getTankFrame() {
-        return tankFrame;
+    public GameFrame getGameFrame() {
+        return gameFrame;
     }
 
-    public void setTankFrame(TankFrame tankFrame) {
-        this.tankFrame = tankFrame;
+    public void setGameFrame(GameFrame gameFrame) {
+        this.gameFrame = gameFrame;
+    }
+
+    public int getStep() {
+        return step;
+    }
+
+    public void setStep(int step) {
+        this.step = step;
     }
 
     public BufferedImage getBufferedImage() {

@@ -3,6 +3,10 @@ package com.chinaliyq.abstractfactory.view;
 import com.chinaliyq.abstractfactory.bean.RectBullet;
 import com.chinaliyq.abstractfactory.bean.RectExplode;
 import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.factory.BaseBullet;
+import com.chinaliyq.abstractfactory.factory.BaseExplode;
+import com.chinaliyq.abstractfactory.factory.BaseTank;
+import com.chinaliyq.abstractfactory.factory.GameFactory;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 import com.chinaliyq.util.PropertyMgr;
@@ -12,6 +16,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,16 +29,23 @@ import java.util.List;
 public class GameFrame extends Frame {
     private static final int GAME_WIDTH = Integer.parseInt((String) PropertyMgr.getValue("gomeWidth"));
     private static final int GAME_HEIGHT = Integer.parseInt((String)PropertyMgr.getValue("gameHeight"));
-    private List<RectTank> tanks =new ArrayList();
-    private List<RectBullet> bullets =new ArrayList();
-    private List<RectExplode> explodes =new ArrayList();
+
+    private static final String defaultFactory = (String) PropertyMgr.getValue("defaultFactory");
+    private static final String specialFactory = (String) PropertyMgr.getValue("specialFactory");
+
+    private List<BaseTank> tanks =new ArrayList();
+    private List<BaseBullet> bullets =new ArrayList();
+    private List<BaseExplode> explodes =new ArrayList();
+
+    private GameFactory gameFactory;
 
     //玩家
-    private RectTank player_one = new RectTank(300,500, Direction.UP, Group.GOOD,this,1);
-    private RectTank player_two = new RectTank(600,500, Direction.UP, Group.GOOD,this,2);
-//    Explode explode =new Explode(100,100,this);
+    private BaseTank player_one;
+    private BaseTank player_two;
 
     public GameFrame(){
+        this.loadFactoy(defaultFactory);
+
         setSize(GAME_WIDTH,GAME_HEIGHT);
         setResizable(false);
         setTitle("TANK 2.0");
@@ -46,6 +58,20 @@ public class GameFrame extends Frame {
             }
         });
     }
+
+
+    public void loadFactoy(String s){
+        //加载工厂
+        try {
+            gameFactory =(GameFactory) Class.forName(s).getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        //创建玩家
+        player_one = gameFactory.createTank(300,500, Direction.UP, Group.GOOD,this,1);
+        player_two = gameFactory.createTank(600,500, Direction.UP, Group.GOOD,this,2);
+    }
+
 
     private Image offScreenImage = null;
      //将所有物件都一起画出来
@@ -194,13 +220,13 @@ public class GameFrame extends Frame {
          */
         private void setPlayOneTankDir() {
             //坦克移动,没有按键不移动
-            if (!player_one.bDown && !player_one.bRight && !player_one.bUp && !player_one.bLeft) player_one.setMoving(false);
+            if (!player_one.bDown && !player_one.bRight && !player_one.bUp && !player_one.bLeft) player_one.moving = false;
             else{
-                player_one.setMoving(true);
-                if (player_one.bLeft) player_one.setDir(Direction.LEFT);
-                if (player_one.bUp)  player_one.setDir(Direction.UP);
-                if (player_one.bRight) player_one.setDir(Direction.RIGHT);
-                if (player_one.bDown) player_one.setDir(Direction.DOWN);
+                player_one.moving=(true);
+                if (player_one.bLeft) player_one.dir=(Direction.LEFT);
+                if (player_one.bUp)  player_one.dir=(Direction.UP);
+                if (player_one.bRight) player_one.dir=(Direction.RIGHT);
+                if (player_one.bDown) player_one.dir=(Direction.DOWN);
             }
         }
         /**
@@ -208,51 +234,77 @@ public class GameFrame extends Frame {
          */
         private void setPlayTwoTankDir() {
             //坦克移动,没有按键不移动
-            if (!player_two.bDown && !player_two.bRight && !player_two.bUp && !player_two.bLeft) player_two.setMoving(false);
+            if (!player_two.bDown && !player_two.bRight && !player_two.bUp && !player_two.bLeft) player_two.moving=(false);
             else{
-                player_two.setMoving(true);
-                if (player_two.bLeft) player_two.setDir(Direction.LEFT);
-                if (player_two.bUp)  player_two.setDir(Direction.UP);
-                if (player_two.bRight) player_two.setDir(Direction.RIGHT);
-                if (player_two.bDown) player_two.setDir(Direction.DOWN);
+                player_two.moving=(true);
+                if (player_two.bLeft) player_two.dir=(Direction.LEFT);
+                if (player_two.bUp)  player_two.dir=(Direction.UP);
+                if (player_two.bRight) player_two.dir=(Direction.RIGHT);
+                if (player_two.bDown) player_two.dir=(Direction.DOWN);
             }
         }
     }
 
-    public List<RectTank> getTanks() {
-        return tanks;
-    }
 
-    public void setTanks(List<RectTank> tanks) {
-        this.tanks = tanks;
-    }
 
-    public List<RectBullet> getBullets() {
-        return bullets;
-    }
-
-    public void setBullets(List<RectBullet> bullets) {
-        this.bullets = bullets;
-    }
-
-    public List<RectExplode> getExplodes() {
+    public List<BaseExplode> getExplodes() {
         return explodes;
     }
 
-    public void setExplodes(List<RectExplode> explodes) {
+    public void setExplodes(List<BaseExplode> explodes) {
         this.explodes = explodes;
-    }
-
-    public RectTank getPlayer_one() {
-        return player_one;
     }
 
     public void setPlayer_one(RectTank player_one) {
         this.player_one = player_one;
     }
 
-    public RectTank getPlayer_two() {
+    public static String getDefaultFactory() {
+        return defaultFactory;
+    }
+
+    public static String getSpecialFactory() {
+        return specialFactory;
+    }
+
+    public List<BaseTank> getTanks() {
+        return tanks;
+    }
+
+    public void setTanks(List<BaseTank> tanks) {
+        this.tanks = tanks;
+    }
+
+    public List<BaseBullet> getBullets() {
+        return bullets;
+    }
+
+    public void setBullets(List<BaseBullet> bullets) {
+        this.bullets = bullets;
+    }
+
+    public GameFactory getGameFactory() {
+        return gameFactory;
+    }
+
+    public void setGameFactory(GameFactory gameFactory) {
+        this.gameFactory = gameFactory;
+    }
+
+    public BaseTank getPlayer_one() {
+        return player_one;
+    }
+
+    public void setPlayer_one(BaseTank player_one) {
+        this.player_one = player_one;
+    }
+
+    public BaseTank getPlayer_two() {
         return player_two;
+    }
+
+    public void setPlayer_two(BaseTank player_two) {
+        this.player_two = player_two;
     }
 
     public void setPlayer_two(RectTank player_two) {
@@ -274,4 +326,5 @@ public class GameFrame extends Frame {
     public void setOffScreenImage(Image offScreenImage) {
         this.offScreenImage = offScreenImage;
     }
+
 }
