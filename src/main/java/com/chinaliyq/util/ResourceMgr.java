@@ -78,12 +78,11 @@ public class ResourceMgr {
             badTankDown = ImageUtil.rotateImage(badTankUp,180);
             badTankDowns[index] = badTankDown;
 
+
             badTankUp = ImageIO.read(ResourceMgr.class.getClassLoader().getResourceAsStream("images/BadTank1.png"));
             badTankLeft = ImageUtil.rotateImage(badTankUp,-90);
             badTankRight = ImageUtil.rotateImage(badTankUp,90);
             badTankDown = ImageUtil.rotateImage(badTankUp,180);
-
-
 
             bulletUp =ImageIO.read(ResourceMgr.class.getClassLoader().getResourceAsStream("images/bulletU.png"));
             bulletLeft = ImageUtil.rotateImage(bulletUp,-90);

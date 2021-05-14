@@ -6,6 +6,7 @@ import com.chinaliyq.abstractfactory.factory.BaseExplode;
 import com.chinaliyq.abstractfactory.factory.BaseTank;
 import com.chinaliyq.abstractfactory.factory.GameFactory;
 import com.chinaliyq.abstractfactory.controller.GameModel;
+import com.chinaliyq.entity.Tank;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.PropertyMgr;
 
@@ -133,6 +134,10 @@ public class GameFrame extends Frame {
                 case KeyEvent.VK_J:
                    this.playerFire(gameModel.player_one);
                     break;
+                case KeyEvent.VK_I:
+                    //复活
+                    easter(gameModel.player_one);
+                    break;
                 //玩家2
                 case KeyEvent.VK_LEFT:
                     gameModel.player_two.bLeft = false;
@@ -148,6 +153,10 @@ public class GameFrame extends Frame {
                     break;
                 case KeyEvent.VK_NUMPAD0:
                     this.playerFire(gameModel.player_two);
+                    break;
+                case KeyEvent.VK_NUMPAD7:
+                    //复活
+                    easter(gameModel.player_two);
                     break;
                 default:
                     break;
@@ -173,6 +182,10 @@ public class GameFrame extends Frame {
 
         private void playerFire(BaseTank tank){
             tank.fire();
+        }
+        private void easter(BaseTank tank){
+            tank.live = true;
+            gameModel.getGameObjects().add(tank);
         }
     }
 }

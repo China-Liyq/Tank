@@ -18,24 +18,22 @@ public class BulletTankCollider extends Collider {
         if (o1 instanceof BaseBullet && o2 instanceof BaseTank){
             BaseBullet bullet = (BaseBullet) o1;
             BaseTank tank = (BaseTank) o2;
-//            bullet.collideWith(tank);
             if (bullet.group == tank.getGroup())return;
             if (bullet.rectangle.intersects(tank.rectangle) && bullet.live == true && tank.live == true){
                 bullet.die();
                 tank.die();
-                countPlayerScore(tank);
+                countPlayerScore(bullet);
             }
         }else if (o1 instanceof BaseTank && o2 instanceof BaseBullet){
             this.collider(o2,o1);
         }
     }
 
-    private void countPlayerScore(BaseTank tank) {
-        if (tank.ID == 1 && tank.group == Group.GOOD){
-            tank.gameModel.player_one.score += 1;
-        }
-        else if (tank.ID == 2 && tank.group == Group.GOOD){
-            tank.gameModel.player_two.score += 1;
+    private void countPlayerScore(BaseBullet bullet) {
+        if (bullet.ID == 1 && bullet.group == Group.GOOD){
+            bullet.gameModel.player_one.score += 1;
+        } else if (bullet.ID == 2 && bullet.group == Group.GOOD){
+            bullet.gameModel.player_two.score += 1;
         }
     }
 }

@@ -40,6 +40,10 @@ public abstract class BaseTank extends GameObject {
 
     public abstract void fire();
 
+    public abstract void move();
+
+    public abstract void back();
+
     public Group getGroup() {
         return group;
     }

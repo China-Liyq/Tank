@@ -66,7 +66,9 @@ public class RectTank extends BaseTank {
                 break;
         }
         g.drawImage(bufferedImage,x,y,null);
+
         this.move();
+        this.badTankfire();
         this.changShape();
         this.updateRectangle();
     }
@@ -75,9 +77,6 @@ public class RectTank extends BaseTank {
     public void die() {
         this.live = false;
         explode.explode(this);
-//        explodeX = this.x + bufferedImage.getWidth() / 2;
-//        explodeY = this.y + bufferedImage.getHeight() / 2;
-//        gameModel.getExplodes().add(new RectExplode(explodeX,explodeY, gameModel));
     }
 
     @Override
@@ -89,6 +88,8 @@ public class RectTank extends BaseTank {
     public int getY() {
         return y;
     }
+
+
     /**
      * 动态图片切换
      */
@@ -106,8 +107,11 @@ public class RectTank extends BaseTank {
 //            System.out.println("使用时间为：--" +(b-a));
         }
     }
-
-    private void move() {
+    private int oldX = x, oldY = y;
+    @Override
+    public void move() {
+        oldX = this.x;
+        oldY = this.y;
         if (!moving) return;
         switch (dir){
             case LEFT:
@@ -123,36 +127,36 @@ public class RectTank extends BaseTank {
                 y += SPEED;
                 break;
         }
-        //电脑自动开枪
-        if (random.nextInt(100) > 97 && this.group == Group.BAD) this.fire();
-        //电脑移动
-        if (random.nextInt(100) > 98 && this.group == Group.BAD) randomDirection(80);
         this.boundsCheck();
         rectangle.x = this.x;
         rectangle.y = this.y;
+
+    }
+    //同类坦克移动当前判断是否碰撞
+    @Override
+    public void back(){
+        this.x = oldX;
+        this.y = oldY;
     }
     private void boundsCheck() {
         boundsWith = bufferedImage.getWidth() / 2;
         if (this.x < boundsWith) {
             x = boundsWith;
-            this.randomDirection(-1);
         }
         else if ((this.x + bufferedImage.getWidth() + boundsWith) >= gameModel.GAME_WIDTH) {
             this.x = gameModel.GAME_WIDTH - bufferedImage.getWidth() - boundsWith;
-            this.randomDirection(-1);
         }
         if (this.y < boundsWith +10){
             y = boundsWith + 10;
-            this.randomDirection(-1);
         }
         else if ((this.y + bufferedImage.getHeight()+boundsWith)>= gameModel.GAME_HEIGHT) {
             this.y = gameModel.GAME_HEIGHT - bufferedImage.getHeight() - boundsWith;
-            this.randomDirection(-1);
         }
     }
-    private void randomDirection(int num) {
-        if (random.nextInt(100) > num)
-        this.dir = directions[random.nextInt(directions.length)];
+
+    private void randomDirection() {
+        if (random.nextInt(100) > 80)
+            this.dir = directions[random.nextInt(directions.length)];
     }
 
     private void updateRectangle(){
@@ -164,7 +168,13 @@ public class RectTank extends BaseTank {
 
     @Override
     public void fire() {
-        if (live==true) fireStrategy.factoryfire(this);
+        if (live == true) fireStrategy.factoryfire(this);
+    }
+    public void badTankfire(){
+        //电脑自动开枪
+        if (this.group == Group.BAD && random.nextInt(100) > 98) this.fire();
+        //电脑移动
+        if (this.group == Group.BAD && random.nextInt(100) > 95) randomDirection();
     }
     //获取开枪等 的模式
     private void LoadFireStrategy(){

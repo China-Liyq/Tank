@@ -24,7 +24,6 @@ public class RectBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
 //    private int x, y;
     private Direction dir;
-    private GameModel gameModel = null;
     private boolean live = true;
     private BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;

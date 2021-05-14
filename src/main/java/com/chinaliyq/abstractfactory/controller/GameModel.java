@@ -1,5 +1,6 @@
 package com.chinaliyq.abstractfactory.controller;
 
+import com.chinaliyq.abstractfactory.core.son.TankAndTankCollider;
 import com.chinaliyq.abstractfactory.factory.GameObject;
 import com.chinaliyq.abstractfactory.core.Collider;
 import com.chinaliyq.abstractfactory.core.son.BulletTankCollider;
@@ -31,7 +32,8 @@ public class GameModel {
 //    private java.util.List<BaseBullet> bullets =new ArrayList();
 //    private List<BaseExplode> explodes =new ArrayList();
     private List<GameObject> gameObjects = new ArrayList<>();
-    private Collider collider = new BulletTankCollider();
+    public Collider bulletTankCollider = new BulletTankCollider();
+    public Collider tankAndTankCollider = new TankAndTankCollider();
     public GameFactory gameFactory;
 
     public int countTanks = 0;
@@ -61,7 +63,8 @@ public class GameModel {
             for (int j = i+1; j < gameObjects.size(); j++) {
                 GameObject gameObject1 = gameObjects.get(i);
                 GameObject gameObject2 = gameObjects.get(j);
-                collider.collider(gameObject1,gameObject2);
+                bulletTankCollider.collider(gameObject1,gameObject2);
+                tankAndTankCollider.collider(gameObject1,gameObject2);
             }
         }
         this.countBaseObjetct();
@@ -87,8 +90,8 @@ public class GameModel {
 
     public GameModel(){
         //加载工厂来更改爆炸
-        this.loadFactoy(defaultFactory);
-//        this.loadFactoy(specialFactory);
+//        this.loadFactoy(defaultFactory);
+        this.loadFactoy(specialFactory);
         //创建敌人
         this.badTanks();
         //创建玩家
