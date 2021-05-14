@@ -1,6 +1,5 @@
 package com.chinaliyq.abstractfactory.controller;
 
-import com.chinaliyq.abstractfactory.bean.GameObject;
 import com.chinaliyq.abstractfactory.factory.BaseBullet;
 import com.chinaliyq.abstractfactory.factory.BaseExplode;
 import com.chinaliyq.abstractfactory.factory.BaseTank;
@@ -25,15 +24,9 @@ public class GameModel {
     private static final String defaultFactory = (String) PropertyMgr.getValue("defaultFactory");
     private static final String specialFactory = (String) PropertyMgr.getValue("specialFactory");
 
-//    private List<BaseTank> tanks =new ArrayList();
-//    private List<BaseBullet> bullets =new ArrayList();
-//    private List<BaseExplode> explodes =new ArrayList();
-
-    private List<GameObject> gameObjects =new ArrayList();
-
-
-
-
+    private java.util.List<BaseTank> tanks =new ArrayList();
+    private java.util.List<BaseBullet> bullets =new ArrayList();
+    private List<BaseExplode> explodes =new ArrayList();
     //玩家
     public BaseTank player_one;
     public BaseTank player_two;
@@ -68,7 +61,6 @@ public class GameModel {
         }
     }
 
-
     public GameModel(){
         //更改爆炸
         this.loadFactoy(defaultFactory);
@@ -96,13 +88,6 @@ public class GameModel {
             tank.moving = true;
             tanks.add(tank);
         }
-    }
-
-    public void add(GameObject gameObject){
-        this.gameObjects.add(gameObject);
-    }
-    public void remove(GameObject gameObject){
-        this.gameObjects.remove(gameObject);
     }
 
     public List<BaseTank> getTanks() {
@@ -135,13 +120,5 @@ public class GameModel {
 
     public void setGameFactory(GameFactory gameFactory) {
         this.gameFactory = gameFactory;
-    }
-
-    public List<GameObject> getGameObjects() {
-        return gameObjects;
-    }
-
-    public void setGameObjects(List<GameObject> gameObjects) {
-        this.gameObjects = gameObjects;
     }
 }

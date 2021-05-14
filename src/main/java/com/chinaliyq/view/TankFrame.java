@@ -1,5 +1,8 @@
 package com.chinaliyq.view;
 
+import com.chinaliyq.abstractfactory.bean.RectBullet;
+import com.chinaliyq.abstractfactory.bean.RectExplode;
+import com.chinaliyq.abstractfactory.bean.RectTank;
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Explode;
 import com.chinaliyq.entity.Tank;
@@ -22,10 +25,13 @@ import java.util.List;
  **/
 public class TankFrame extends Frame {
     public static final int GAME_WIDTH = 1080, GAME_HEIGHT = 960;
-
     public List<Bullet> bullets =new ArrayList();
     public List<Tank> tanks =new ArrayList();
     public List<Explode> explodes =new ArrayList();
+
+    public List<RectTank> rectTanks =new ArrayList();
+    public List<RectBullet> rectBullets =new ArrayList();
+    public List<RectExplode> rectExplodes =new ArrayList();
     public Tank myTank = new Tank(450,300, Direction.UP, Group.GOOD,this);
 //    Explode explode =new Explode(100,100,this);
 

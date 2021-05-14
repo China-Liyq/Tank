@@ -25,7 +25,8 @@ public class ResourceMgr {
     public static BufferedImage[] badTankRights = new BufferedImage[2];
     public static BufferedImage[] badTankDowns = new BufferedImage[2];
 
-    public static BufferedImage[] explodes = new BufferedImage[16];
+    public static BufferedImage[] defualtExplodes = new BufferedImage[11];
+    public static BufferedImage[] specialExplodes = new BufferedImage[16];
 
     //加载顺序有误
 //    public static BufferedImage loading(String path) throws IOException {
@@ -89,9 +90,14 @@ public class ResourceMgr {
             bulletRight = ImageUtil.rotateImage(bulletUp,90);
             bulletDown = ImageUtil.rotateImage(bulletUp,180);
 
-            for (int i = 0; i < 16; i++) {
-                explodes[i] =ImageIO.read(ResourceMgr.class.getClassLoader().getResourceAsStream("images/e" + (i + 1) + ".gif"));
+            for (int i = 0; i < specialExplodes.length; i++) {
+                specialExplodes[i] =ImageIO.read(ResourceMgr.class.getClassLoader().getResourceAsStream("images/e" + (i + 1) + ".gif"));
+            } 
+            for (int i = 0; i < defualtExplodes.length; i++) {
+                defualtExplodes[i] =ImageIO.read(ResourceMgr.class.getClassLoader().getResourceAsStream("images/" + (i) + ".gif"));
             }
+            
+            
         } catch (IOException e) {
             e.printStackTrace();
         }

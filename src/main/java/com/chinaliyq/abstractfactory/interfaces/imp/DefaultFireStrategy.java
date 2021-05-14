@@ -1,8 +1,10 @@
-package com.chinaliyq.interfaces.imp;
+package com.chinaliyq.abstractfactory.interfaces.imp;
 
+import com.chinaliyq.abstractfactory.bean.RectBullet;
+import com.chinaliyq.abstractfactory.bean.RectTank;
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Tank;
-import com.chinaliyq.interfaces.FireStrategy;
+import com.chinaliyq.abstractfactory.interfaces.FireStrategy;
 import com.chinaliyq.util.Audio;
 import com.chinaliyq.util.Group;
 
@@ -41,6 +43,34 @@ public class DefaultFireStrategy implements FireStrategy {
         if (t.getGroup() == Group.GOOD)
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
 
+    }
+
+    @Override
+    public void factoryfire(RectTank tank) {
+        //获取枪口中心的位置
+        switch (tank.getDir()){
+            case LEFT:
+                tankCenterX = tank.getX() + 0;
+                tankCenterY = tank.getY() + tank.getBufferedImage().getHeight() / 2;
+                break;
+            case UP:
+                tankCenterX = tank.getX() + tank.getBufferedImage().getWidth() / 2;
+                tankCenterY = tank.getY() + 0;
+                break;
+            case RIGHT:
+                tankCenterX = tank.getX() + tank.getBufferedImage().getWidth();
+                tankCenterY = tank.getY() + tank.getBufferedImage().getHeight() / 2;
+                break;
+            case DOWN:
+                tankCenterX = tank.getX() + tank.getBufferedImage().getWidth() / 2;
+                tankCenterY = tank.getY() + tank.getBufferedImage().getHeight();
+                break;
+        }
+        RectBullet bullet = new RectBullet(tankCenterX, tankCenterY, tank.getDir(),tank.getGroup(), tank.gameModel,tank.ID);
+        tank.gameModel.getBullets().add(bullet);
+        //队友和自己不能打队友
+        if (tank.getGroup() == Group.GOOD)
+            new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
     }
 
 }
