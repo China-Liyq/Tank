@@ -19,7 +19,6 @@ import java.awt.image.BufferedImage;
 public class DefualtExplode extends BaseExplode {
 //    private int x, y;
     private boolean live = true;
-    private GameModel gameModel = null;
     private BufferedImage bufferedImage;
     private int explodeCenterX,explodeCenterY;
     private Group group = Group.BAD;
@@ -32,7 +31,7 @@ public class DefualtExplode extends BaseExplode {
         explodeCenterY = this.y - bufferedImage.getHeight() / 2;
         g.drawImage(bufferedImage,explodeCenterX,explodeCenterY,null);
         if (step >= ResourceMgr.defualtExplodes.length){
-            gameModel.getExplodes().remove(this);
+            gameModel.getGameObjects().remove(this);
         }
     }
 

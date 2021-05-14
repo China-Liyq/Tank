@@ -21,10 +21,7 @@ import java.awt.image.BufferedImage;
 //@SuppressWarnings("all")
 public class DefualtBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
-//    private int x, y;
     private Direction dir;
-    private GameModel gameModel = null;
-    private boolean live = true;
     private BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
     private int fillWidth = 20,fillHeight = 20;
@@ -32,7 +29,7 @@ public class DefualtBullet extends BaseBullet {
     @Override
     public void paint(Graphics g) {
         if (!live){
-            gameModel.getBullets().remove(this);
+            gameModel.getGameObjects().remove(this);
         }
         Color color = g.getColor();
         Color yellow = Color.YELLOW;

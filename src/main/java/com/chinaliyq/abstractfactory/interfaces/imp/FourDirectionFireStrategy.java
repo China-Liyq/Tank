@@ -77,10 +77,10 @@ public class FourDirectionFireStrategy implements FireStrategy {
         BaseBullet bullet2 = t.gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.DOWN, t.getGroup(), t.gameModel, t.ID);
         BaseBullet bullet3 = t.gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.RIGHT, t.getGroup(), t.gameModel, t.ID);
         BaseBullet bullet4 = t.gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.LEFT, t.getGroup(), t.gameModel, t.ID);
-        t.gameModel.getBullets().add(bullet1);
-        t.gameModel.getBullets().add(bullet2);
-        t.gameModel.getBullets().add(bullet3);
-        t.gameModel.getBullets().add(bullet4);
+        t.gameModel.getGameObjects().add(bullet1);
+        t.gameModel.getGameObjects().add(bullet2);
+        t.gameModel.getGameObjects().add(bullet3);
+        t.gameModel.getGameObjects().add(bullet4);
         //队友不能打队友
         if (t.getGroup() == Group.GOOD)
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();

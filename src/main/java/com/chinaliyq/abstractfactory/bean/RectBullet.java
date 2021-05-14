@@ -32,7 +32,7 @@ public class RectBullet extends BaseBullet {
     @Override
     public void paint(Graphics g) {
         if (!live){
-            gameModel.getBullets().remove(this);
+            gameModel.getGameObjects().remove(this);
         }
         switch (dir){
             case LEFT:

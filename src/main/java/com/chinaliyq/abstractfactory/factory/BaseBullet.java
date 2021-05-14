@@ -1,9 +1,7 @@
 package com.chinaliyq.abstractfactory.factory;
 
-import com.chinaliyq.abstractfactory.bean.GameObject;
-import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.controller.GameModel;
 import com.chinaliyq.util.Group;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 
 import java.awt.*;
 
@@ -14,8 +12,11 @@ import java.awt.*;
  * @Version: 1.0
  **/
 public abstract class BaseBullet extends GameObject {
-
+    //持有画板的对象来画画
+    public GameModel gameModel = null;
     public Rectangle rectangle = new Rectangle();
+
+    public boolean live = true;
 
     public Group group = Group.BAD;
 

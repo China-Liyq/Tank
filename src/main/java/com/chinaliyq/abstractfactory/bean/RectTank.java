@@ -23,6 +23,7 @@ import java.awt.image.BufferedImage;
  **/
 public class RectTank extends BaseTank {
     private final static int SPEED = Integer.parseInt((String)PropertyMgr.getValue("tankSpeed"));
+    private static Direction[] directions = Direction.values();
     private int index = 0;
     private int count = 0;
     private int boundsWith = 8;
@@ -40,13 +41,14 @@ public class RectTank extends BaseTank {
 
     @Override
     public void paint(Graphics g) {
+        if (!this.live){
+            gameModel.getGameObjects().remove(this);
+            return;
+        };
         TankLefts = this.group == Group.GOOD ? ResourceMgr.goodTankLefts : ResourceMgr.badTankLefts;
         TankUps = this.group == Group.GOOD ? ResourceMgr.goodTankUps : ResourceMgr.badTankUps;
         TankRights = this.group == Group.GOOD ? ResourceMgr.goodTankRights : ResourceMgr.badTankRights;
         TankDowns = this.group == Group.GOOD ? ResourceMgr.goodTankDowns : ResourceMgr.badTankDowns;
-        if (!this.isLive()){
-            gameModel.getTanks().remove(this);
-        };
         switch (dir){
             case LEFT:
                 bufferedImage = TankLefts[index];
@@ -106,7 +108,7 @@ public class RectTank extends BaseTank {
     }
 
     private void move() {
-        if (!moving)return;
+        if (!moving) return;
         switch (dir){
             case LEFT:
                 x -= SPEED;
@@ -124,29 +126,33 @@ public class RectTank extends BaseTank {
         //电脑自动开枪
         if (random.nextInt(100) > 97 && this.group == Group.BAD) this.fire();
         //电脑移动
-        if (random.nextInt(100) > 98 && this.group == Group.BAD) randomDirection();
+        if (random.nextInt(100) > 98 && this.group == Group.BAD) randomDirection(80);
         this.boundsCheck();
         rectangle.x = this.x;
         rectangle.y = this.y;
     }
-
     private void boundsCheck() {
         boundsWith = bufferedImage.getWidth() / 2;
-        if (this.x < boundsWith) x = boundsWith;
-        else if ((this.x + bufferedImage.getWidth() + boundsWith) >= gameModel.GAME_WIDTH) this.x = gameModel.GAME_WIDTH - bufferedImage.getWidth() - boundsWith;
-        if (this.y < boundsWith +10) y = boundsWith + 10;
-        else if ((this.y + bufferedImage.getHeight()+boundsWith)>= gameModel.GAME_HEIGHT) this.y = gameModel.GAME_HEIGHT - bufferedImage.getHeight() - boundsWith;
-
+        if (this.x < boundsWith) {
+            x = boundsWith;
+            this.randomDirection(-1);
+        }
+        else if ((this.x + bufferedImage.getWidth() + boundsWith) >= gameModel.GAME_WIDTH) {
+            this.x = gameModel.GAME_WIDTH - bufferedImage.getWidth() - boundsWith;
+            this.randomDirection(-1);
+        }
+        if (this.y < boundsWith +10){
+            y = boundsWith + 10;
+            this.randomDirection(-1);
+        }
+        else if ((this.y + bufferedImage.getHeight()+boundsWith)>= gameModel.GAME_HEIGHT) {
+            this.y = gameModel.GAME_HEIGHT - bufferedImage.getHeight() - boundsWith;
+            this.randomDirection(-1);
+        }
     }
-
-    private void randomDirection() {
-        Direction[] values = Direction.values();
-        if (random.nextInt(100) > 90)
-        this.dir = values[random.nextInt(values.length)];
-    }
-    @Override
-    public void fire() {
-        fireStrategy.factoryfire(this);
+    private void randomDirection(int num) {
+        if (random.nextInt(100) > num)
+        this.dir = directions[random.nextInt(directions.length)];
     }
 
     private void updateRectangle(){
@@ -154,6 +160,11 @@ public class RectTank extends BaseTank {
         rectangle.y = y;
         rectangle.width = bufferedImage.getWidth();
         rectangle.height = bufferedImage.getHeight();
+    }
+
+    @Override
+    public void fire() {
+        if (live==true) fireStrategy.factoryfire(this);
     }
     //获取开枪等 的模式
     private void LoadFireStrategy(){
@@ -183,8 +194,8 @@ public class RectTank extends BaseTank {
         this.dir = dir;
         this.gameModel = gameModel;
         this.group = group;
-        this.LoadFireStrategy();
         this.ID = id;
+        this.LoadFireStrategy();
     }
     public RectTank(int x, int y, Direction dir, Group group, GameModel gameModel, Boolean moving) {
         this.x = x;

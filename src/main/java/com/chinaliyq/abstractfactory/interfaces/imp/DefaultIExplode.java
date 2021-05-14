@@ -18,7 +18,7 @@ public class DefaultIExplode implements IExplode {
             explodeX = tank.getX() + tank.getBufferedImage().getWidth() / 2;
             explodeY = tank.getY() + tank.getBufferedImage().getHeight() / 2;
             BaseExplode explode = tank.gameModel.getGameFactory().createExplode(explodeX, explodeY, tank.gameModel);
-            tank.gameModel.getExplodes().add(explode);
+            tank.gameModel.getGameObjects().add(explode);
         }
     }
 }

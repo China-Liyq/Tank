@@ -32,7 +32,7 @@ public class RectExplode extends BaseExplode {
         explodeCenterY = this.y - bufferedImage.getHeight() / 2;
         g.drawImage(bufferedImage,explodeCenterX,explodeCenterY,null);
         if (step >= ResourceMgr.specialExplodes.length){
-           gameModel.getExplodes().remove(this);
+           gameModel.getGameObjects().remove(this);
         }
     }
 

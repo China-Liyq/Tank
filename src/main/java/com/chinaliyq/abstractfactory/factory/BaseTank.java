@@ -1,8 +1,6 @@
 package com.chinaliyq.abstractfactory.factory;
 
-import com.chinaliyq.abstractfactory.bean.GameObject;
 import com.chinaliyq.abstractfactory.controller.GameModel;
-import com.chinaliyq.abstractfactory.view.GameFrame;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 
@@ -16,8 +14,6 @@ import java.util.Random;
  * @Version: 1.0
  **/
 public abstract class BaseTank extends GameObject {
-//    public int x;
-//    public int y;
     public Group group = Group.BAD;
     public Rectangle rectangle = new Rectangle();
     public Random random = new Random();
@@ -30,7 +26,7 @@ public abstract class BaseTank extends GameObject {
     public Direction dir = Direction.UP;
     //持有画板的对象来画画
     public GameModel gameModel = null;
-
+    public Direction[] directions = Direction.values();
     public int ID = 0;
     public int score = 0;
 

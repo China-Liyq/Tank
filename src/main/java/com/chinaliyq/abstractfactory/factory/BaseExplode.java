@@ -1,10 +1,7 @@
 package com.chinaliyq.abstractfactory.factory;
 
-import com.chinaliyq.abstractfactory.bean.GameObject;
-import com.chinaliyq.entity.Tank;
+import com.chinaliyq.abstractfactory.controller.GameModel;
 import com.chinaliyq.util.Group;
-
-import java.awt.*;
 
 /**
  * @Author: liyq
@@ -13,6 +10,8 @@ import java.awt.*;
  * @Version: 1.0
  **/
 public abstract class BaseExplode extends GameObject {
+    //持有画板的对象来画画
+    public GameModel gameModel = null;
     public Group group = Group.BAD;
 
 //    public abstract void paint(Graphics g);

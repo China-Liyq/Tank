@@ -131,7 +131,7 @@ public class GameFrame extends Frame {
                     gameModel.player_one.bDown = false;
                     break;
                 case KeyEvent.VK_J:
-                    gameModel.player_one.fire();
+                   this.playerFire(gameModel.player_one);
                     break;
                 //玩家2
                 case KeyEvent.VK_LEFT:
@@ -147,7 +147,7 @@ public class GameFrame extends Frame {
                     gameModel.player_two.bDown = false;
                     break;
                 case KeyEvent.VK_NUMPAD0:
-                    gameModel.player_two.fire();
+                    this.playerFire(gameModel.player_two);
                     break;
                 default:
                     break;
@@ -161,14 +161,18 @@ public class GameFrame extends Frame {
          */
         private void setPlayerTankDir(BaseTank tank) {
             //坦克移动,没有按键不移动
-            if (!tank.bDown && !tank.bRight && !tank.bUp && !tank.bLeft) tank.moving=(false);
-            else{
+            if (!tank.bDown && !tank.bRight && !tank.bUp && !tank.bLeft) tank.moving = false;
+            else {
                 tank.moving=(true);
-                if (tank.bLeft) tank.dir=(Direction.LEFT);
-                if (tank.bUp)  tank.dir=(Direction.UP);
-                if (tank.bRight) tank.dir=(Direction.RIGHT);
-                if (tank.bDown) tank.dir=(Direction.DOWN);
+                if (tank.bLeft) tank.dir=Direction.LEFT;
+                if (tank.bUp)  tank.dir=Direction.UP;
+                if (tank.bRight) tank.dir=Direction.RIGHT;
+                if (tank.bDown) tank.dir=Direction.DOWN;
             }
+        }
+
+        private void playerFire(BaseTank tank){
+            tank.fire();
         }
     }
 }

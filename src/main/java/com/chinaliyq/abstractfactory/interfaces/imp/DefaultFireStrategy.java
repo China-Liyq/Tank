@@ -67,7 +67,7 @@ public class DefaultFireStrategy implements FireStrategy {
                 break;
         }
         RectBullet bullet = new RectBullet(tankCenterX, tankCenterY, tank.getDir(),tank.getGroup(), tank.gameModel,tank.ID);
-        tank.gameModel.getBullets().add(bullet);
+        tank.gameModel.getGameObjects().add(bullet);
         //队友和自己不能打队友
         if (tank.getGroup() == Group.GOOD)
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();

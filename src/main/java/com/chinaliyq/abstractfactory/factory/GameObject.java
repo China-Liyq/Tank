@@ -1,4 +1,4 @@
-package com.chinaliyq.abstractfactory.bean;
+package com.chinaliyq.abstractfactory.factory;
 
 import java.awt.*;
 
