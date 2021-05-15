@@ -25,7 +25,7 @@ public abstract class BaseTank extends GameObject {
     public boolean moving = false;
     public Direction dir = Direction.UP;
     //持有画板的对象来画画
-    public GameModel gameModel = null;
+//    public GameModel gameModel = null;
     public Direction[] directions = Direction.values();
     public int ID = 0;
     public int score = 0;

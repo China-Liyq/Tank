@@ -22,7 +22,6 @@ import java.awt.image.BufferedImage;
 //@SuppressWarnings("all")
 public class RectBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
-//    private int x, y;
     private Direction dir;
     private boolean live = true;
     private BufferedImage bufferedImage;
@@ -119,18 +118,16 @@ public class RectBullet extends BaseBullet {
                 '}';
     }
 
-    public RectBullet(int x, int y, Direction dir, Group group, GameModel gameModel) {
+    public RectBullet(int x, int y, Direction dir, Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gameModel = gameModel;
         this.group = group;
     }
-    public RectBullet(int x, int y, Direction dir, Group group, GameModel gameModel,int id) {
+    public RectBullet(int x, int y, Direction dir, Group group,int id) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gameModel = gameModel;
         this.group = group;
         this.ID = id;
     }
@@ -140,14 +137,6 @@ public class RectBullet extends BaseBullet {
         rectangle.y = y;
         rectangle.width = bufferedImage.getWidth();
         rectangle.height = bufferedImage.getHeight();
-    }
-
-    public GameModel getGameModel() {
-        return gameModel;
-    }
-
-    public void setGameModel(GameModel gameModel) {
-        this.gameModel = gameModel;
     }
 
     public boolean isLive() {

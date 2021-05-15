@@ -17,9 +17,7 @@ import java.awt.image.BufferedImage;
  * @Version: 1.0
  **/
 public class RectExplode extends BaseExplode {
-//    private int x, y;
     private boolean live = true;
-    private GameModel gameModel = null;
     private BufferedImage bufferedImage;
     private int explodeCenterX,explodeCenterY;
     private Group group = Group.BAD;
@@ -36,10 +34,9 @@ public class RectExplode extends BaseExplode {
         }
     }
 
-    public RectExplode(int x, int y, GameModel gameModel) {
+    public RectExplode(int x, int y) {
         this.x = x;
         this.y = y;
-        this.gameModel = gameModel;
         Audio audio = new Audio("audio/explode.wav");
         audio.start();
     }
@@ -70,14 +67,6 @@ public class RectExplode extends BaseExplode {
 
     public void setLive(boolean live) {
         this.live = live;
-    }
-
-    public GameModel getGameModel() {
-        return gameModel;
-    }
-
-    public void setGameModel(GameModel gameModel) {
-        this.gameModel = gameModel;
     }
 
     public int getStep() {

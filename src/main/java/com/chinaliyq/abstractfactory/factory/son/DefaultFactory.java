@@ -1,14 +1,8 @@
 package com.chinaliyq.abstractfactory.factory.son;
 
-import com.chinaliyq.abstractfactory.bean.DefualtBullet;
-import com.chinaliyq.abstractfactory.bean.DefualtExplode;
-import com.chinaliyq.abstractfactory.bean.RectBullet;
-import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.bean.*;
 import com.chinaliyq.abstractfactory.controller.GameModel;
-import com.chinaliyq.abstractfactory.factory.BaseBullet;
-import com.chinaliyq.abstractfactory.factory.BaseExplode;
-import com.chinaliyq.abstractfactory.factory.BaseTank;
-import com.chinaliyq.abstractfactory.factory.GameFactory;
+import com.chinaliyq.abstractfactory.factory.*;
 import com.chinaliyq.abstractfactory.view.GameFrame;
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.util.Direction;
@@ -26,17 +20,23 @@ import java.awt.*;
 public class DefaultFactory extends GameFactory {
 
     @Override
-    public BaseTank createTank(int x, int y, Direction dir, Group group, GameModel gameModel, int id) {
-        return new RectTank(x,y,dir,group,gameModel,id);
+    public BaseTank createTank(int x, int y, Direction dir, Group group, int id) {
+        return new RectTank(x,y,dir,group,id);
     }
 
     @Override
-    public BaseBullet createBullet(int x, int y, Direction dir, Group group, GameModel gameModel, int id) {
-        return new DefualtBullet(x,y,dir,group,gameModel,id);
+    public BaseBullet createBullet(int x, int y, Direction dir, Group group, int id) {
+        return new DefualtBullet(x,y,dir,group,id);
     }
 
     @Override
-    public BaseExplode createExplode(int x, int y, GameModel gameModel) {
-        return new DefualtExplode(x,y,gameModel);
+    public BaseExplode createExplode(int x, int y) {
+        return new DefualtExplode(x,y);
+    }
+
+
+    @Override
+    public BaseWall createWall(int x, int y,int w, int h) {
+        return new DefualtWall(x,y,w,h);
     }
 }

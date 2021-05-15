@@ -3,7 +3,6 @@ package com.chinaliyq.abstractfactory.bean;
 import com.chinaliyq.abstractfactory.controller.GameModel;
 import com.chinaliyq.abstractfactory.factory.BaseBullet;
 import com.chinaliyq.abstractfactory.factory.BaseTank;
-import com.chinaliyq.abstractfactory.view.GameFrame;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 import com.chinaliyq.util.PropertyMgr;
@@ -25,7 +24,6 @@ public class DefualtBullet extends BaseBullet {
     private BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
     private int fillWidth = 20,fillHeight = 20;
-
     @Override
     public void paint(Graphics g) {
         if (!live){
@@ -102,18 +100,18 @@ public class DefualtBullet extends BaseBullet {
                 '}';
     }
 
-    public DefualtBullet(int x, int y, Direction dir, Group group, GameModel gameModel) {
+    public DefualtBullet(int x, int y, Direction dir, Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gameModel = gameModel;
+
         this.group = group;
     }
-    public DefualtBullet(int x, int y, Direction dir, Group group, GameModel gameModel, int id) {
+    public DefualtBullet(int x, int y, Direction dir, Group group, int id) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gameModel = gameModel;
+
         this.group = group;
         this.ID = id;
     }
@@ -140,14 +138,6 @@ public class DefualtBullet extends BaseBullet {
 
     public static int getSPEED() {
         return SPEED;
-    }
-
-    public GameModel getGameModel() {
-        return gameModel;
-    }
-
-    public void setGameModel(GameModel gameModel) {
-        this.gameModel = gameModel;
     }
 
     public void setX(int x) {

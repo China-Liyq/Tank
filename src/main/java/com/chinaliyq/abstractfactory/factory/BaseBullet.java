@@ -12,8 +12,6 @@ import java.awt.*;
  * @Version: 1.0
  **/
 public abstract class BaseBullet extends GameObject {
-    //持有画板的对象来画画
-    public GameModel gameModel = null;
     public Rectangle rectangle = new Rectangle();
 
     public boolean live = true;
@@ -21,8 +19,6 @@ public abstract class BaseBullet extends GameObject {
     public Group group = Group.BAD;
 
     public int ID = 0;
-
-//    public abstract void paint(Graphics g);
 
     public abstract void collideWith(BaseTank tank);
 

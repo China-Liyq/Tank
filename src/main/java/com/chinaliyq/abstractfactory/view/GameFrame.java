@@ -1,21 +1,14 @@
 package com.chinaliyq.abstractfactory.view;
 
-import com.chinaliyq.abstractfactory.bean.RectTank;
-import com.chinaliyq.abstractfactory.factory.BaseBullet;
-import com.chinaliyq.abstractfactory.factory.BaseExplode;
 import com.chinaliyq.abstractfactory.factory.BaseTank;
-import com.chinaliyq.abstractfactory.factory.GameFactory;
 import com.chinaliyq.abstractfactory.controller.GameModel;
-import com.chinaliyq.entity.Tank;
 import com.chinaliyq.util.Direction;
-import com.chinaliyq.util.PropertyMgr;
 
 import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.List;
 
 /**
  * @Author: liyq
@@ -24,10 +17,10 @@ import java.util.List;
  * @Version: 1.0
  **/
 public class GameFrame extends Frame {
-    public GameModel gameModel =new GameModel();
+    private static GameModel gameModel = GameModel.getInstance();
 
     public GameFrame(){
-        setSize(gameModel.GAME_WIDTH,gameModel.GAME_HEIGHT);
+        setSize(gameModel.GAME_WIDTH, gameModel.GAME_HEIGHT);
         setResizable(false);
         setTitle("TANK 2.0");
         setVisible(true);
@@ -40,17 +33,18 @@ public class GameFrame extends Frame {
         });
     }
 
+
     private Image offScreenImage = null;
      //将所有物件都一起画出来
     @Override
     public void update(Graphics g) {
         if (null == offScreenImage){
-            offScreenImage = this.createImage(gameModel.GAME_WIDTH,gameModel.GAME_HEIGHT);
+            offScreenImage = this.createImage(gameModel.GAME_WIDTH, gameModel.GAME_HEIGHT);
         }
         Graphics gOffScreen = offScreenImage.getGraphics();
         Color color = gOffScreen.getColor();
         gOffScreen.setColor(Color.black);
-        gOffScreen.fillRect(0,0,gameModel.GAME_WIDTH,gameModel.GAME_HEIGHT);
+        gOffScreen.fillRect(0,0, gameModel.GAME_WIDTH, gameModel.GAME_HEIGHT);
         gOffScreen.setColor(color);
         //将画笔交给物件画物件
         paint(gOffScreen);
@@ -69,7 +63,7 @@ public class GameFrame extends Frame {
         boolean bUp = false;
         boolean bRight = false;
         boolean bDown = false;
-
+        private int countVK_U =0;
         @Override
         public void keyTyped(KeyEvent e) {
 
@@ -138,6 +132,15 @@ public class GameFrame extends Frame {
                     //复活
                     easter(gameModel.player_one);
                     break;
+                case KeyEvent.VK_U:
+                    countVK_U = countVK_U == 0 ? 1 : 0;
+                    if (countVK_U == 0){
+                        gameModel.loadDefaultFactoy();
+                    }else {
+                        //更新模式
+                        gameModel.loadSpecialFactoy();
+                    }
+                    break;
                 //玩家2
                 case KeyEvent.VK_LEFT:
                     gameModel.player_two.bLeft = false;
@@ -164,7 +167,6 @@ public class GameFrame extends Frame {
             setPlayerTankDir(gameModel.player_one);
             setPlayerTankDir(gameModel.player_two);
         }
-
         /**
          * 玩家改变方向
          */

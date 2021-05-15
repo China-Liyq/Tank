@@ -26,9 +26,8 @@ public class RectTank extends BaseTank {
     private static Direction[] directions = Direction.values();
     private int index = 0;
     private int count = 0;
-    private int boundsWith = 8;
+    public int boundsWith = 8;
     private BufferedImage bufferedImage;
-
     private FireStrategy fireStrategy;
     private IExplode explode;
 
@@ -174,7 +173,7 @@ public class RectTank extends BaseTank {
         //电脑自动开枪
         if (this.group == Group.BAD && random.nextInt(100) > 98) this.fire();
         //电脑移动
-        if (this.group == Group.BAD && random.nextInt(100) > 95) randomDirection();
+        if (this.group == Group.BAD && random.nextInt(100) > 90) randomDirection();
     }
     //获取开枪等 的模式
     private void LoadFireStrategy(){
@@ -190,28 +189,28 @@ public class RectTank extends BaseTank {
         }
         explode = new DefaultIExplode();
     }
-    public RectTank(int x, int y, Direction dir, Group group, GameModel gameModel) {
+    public RectTank(int x, int y, Direction dir, Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gameModel = gameModel;
+
         this.group = group;
         this.LoadFireStrategy();
     }
-    public RectTank(int x, int y, Direction dir, Group group, GameModel gameModel,int id) {
+    public RectTank(int x, int y, Direction dir, Group group,int id) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gameModel = gameModel;
+
         this.group = group;
         this.ID = id;
         this.LoadFireStrategy();
     }
-    public RectTank(int x, int y, Direction dir, Group group, GameModel gameModel, Boolean moving) {
+    public RectTank(int x, int y, Direction dir, Group group, Boolean moving) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-        this.gameModel = gameModel;
+
         this.group = group;
         this.moving =moving;
         this.LoadFireStrategy();

@@ -73,14 +73,14 @@ public class FourDirectionFireStrategy implements FireStrategy {
                 tankCenterY = t.getY() + t.getBufferedImage().getHeight();
                 break;
         }
-        BaseBullet bullet1 = t.gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.UP, t.getGroup(), t.gameModel, t.ID);
-        BaseBullet bullet2 = t.gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.DOWN, t.getGroup(), t.gameModel, t.ID);
-        BaseBullet bullet3 = t.gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.RIGHT, t.getGroup(), t.gameModel, t.ID);
-        BaseBullet bullet4 = t.gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.LEFT, t.getGroup(), t.gameModel, t.ID);
-        t.gameModel.getGameObjects().add(bullet1);
-        t.gameModel.getGameObjects().add(bullet2);
-        t.gameModel.getGameObjects().add(bullet3);
-        t.gameModel.getGameObjects().add(bullet4);
+        BaseBullet bullet1 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.UP, t.getGroup(), t.ID);
+        BaseBullet bullet2 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.DOWN, t.getGroup(), t.ID);
+        BaseBullet bullet3 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.RIGHT, t.getGroup(), t.ID);
+        BaseBullet bullet4 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.LEFT, t.getGroup(), t.ID);
+        gameModel.getGameObjects().add(bullet1);
+        gameModel.getGameObjects().add(bullet2);
+        gameModel.getGameObjects().add(bullet3);
+        gameModel.getGameObjects().add(bullet4);
         //队友不能打队友
         if (t.getGroup() == Group.GOOD)
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();

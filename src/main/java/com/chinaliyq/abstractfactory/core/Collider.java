@@ -1,5 +1,6 @@
 package com.chinaliyq.abstractfactory.core;
 
+import com.chinaliyq.abstractfactory.controller.GameModel;
 import com.chinaliyq.abstractfactory.factory.GameObject;
 
 /**
@@ -8,8 +9,9 @@ import com.chinaliyq.abstractfactory.factory.GameObject;
  * @Date: 2021/5/14 - 13:51
  * @Version: 1.0
  **/
-public abstract class Collider {
+public interface Collider {
+    GameModel gameModel = GameModel.getInstance();
 
-    public abstract void collider(GameObject o1,GameObject o2);
+    boolean collider(GameObject o1,GameObject o2);
 
 }

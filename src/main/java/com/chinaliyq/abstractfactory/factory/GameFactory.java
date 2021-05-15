@@ -15,9 +15,11 @@ import java.awt.*;
  **/
 public abstract class GameFactory {
 
-    public abstract BaseTank createTank(int x, int y, Direction dir, Group group, GameModel gameModel, int id);
+    public abstract BaseTank createTank(int x, int y, Direction dir, Group group, int id);
 
-    public abstract BaseBullet createBullet(int x, int y, Direction dir, Group group, GameModel gameModel,int id);
+    public abstract BaseBullet createBullet(int x, int y, Direction dir, Group group,int id);
 
-    public abstract BaseExplode createExplode(int x, int y, GameModel gameModel);
+    public abstract BaseExplode createExplode(int x, int y);
+
+    public abstract BaseWall createWall(int x, int y,int w, int h);
 }

@@ -17,7 +17,6 @@ import java.awt.image.BufferedImage;
  * @Version: 1.0
  **/
 public class DefualtExplode extends BaseExplode {
-//    private int x, y;
     private boolean live = true;
     private BufferedImage bufferedImage;
     private int explodeCenterX,explodeCenterY;
@@ -35,10 +34,9 @@ public class DefualtExplode extends BaseExplode {
         }
     }
 
-    public DefualtExplode(int x, int y, GameModel gameModel) {
+    public DefualtExplode(int x, int y) {
         this.x = x;
         this.y = y;
-        this.gameModel = gameModel;
         Audio audio = new Audio("audio/explode.wav");
         audio.start();
     }
@@ -69,14 +67,6 @@ public class DefualtExplode extends BaseExplode {
 
     public void setLive(boolean live) {
         this.live = live;
-    }
-
-    public GameModel getGameModel() {
-        return gameModel;
-    }
-
-    public void setGameModel(GameModel gameModel) {
-        this.gameModel = gameModel;
     }
 
     public int getStep() {

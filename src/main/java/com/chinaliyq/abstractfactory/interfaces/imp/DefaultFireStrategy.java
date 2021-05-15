@@ -66,8 +66,8 @@ public class DefaultFireStrategy implements FireStrategy {
                 tankCenterY = tank.getY() + tank.getBufferedImage().getHeight();
                 break;
         }
-        RectBullet bullet = new RectBullet(tankCenterX, tankCenterY, tank.getDir(),tank.getGroup(), tank.gameModel,tank.ID);
-        tank.gameModel.getGameObjects().add(bullet);
+        RectBullet bullet = new RectBullet(tankCenterX, tankCenterY, tank.getDir(),tank.getGroup(),tank.ID);
+        gameModel.getGameObjects().add(bullet);
         //队友和自己不能打队友
         if (tank.getGroup() == Group.GOOD)
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();

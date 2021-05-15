@@ -1,6 +1,7 @@
 package com.chinaliyq.abstractfactory.interfaces.imp;
 
 import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.controller.GameModel;
 import com.chinaliyq.abstractfactory.factory.BaseExplode;
 import com.chinaliyq.abstractfactory.interfaces.IExplode;
 
@@ -17,8 +18,8 @@ public class DefaultIExplode implements IExplode {
         if (null != tank.getBufferedImage()){
             explodeX = tank.getX() + tank.getBufferedImage().getWidth() / 2;
             explodeY = tank.getY() + tank.getBufferedImage().getHeight() / 2;
-            BaseExplode explode = tank.gameModel.getGameFactory().createExplode(explodeX, explodeY, tank.gameModel);
-            tank.gameModel.getGameObjects().add(explode);
+            BaseExplode explode = gameModel.getGameFactory().createExplode(explodeX, explodeY);
+            gameModel.getGameObjects().add(explode);
         }
     }
 }

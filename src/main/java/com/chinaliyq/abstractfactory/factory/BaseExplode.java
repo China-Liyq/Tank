@@ -10,8 +10,6 @@ import com.chinaliyq.util.Group;
  * @Version: 1.0
  **/
 public abstract class BaseExplode extends GameObject {
-    //持有画板的对象来画画
-    public GameModel gameModel = null;
     public Group group = Group.BAD;
 
 //    public abstract void paint(Graphics g);
