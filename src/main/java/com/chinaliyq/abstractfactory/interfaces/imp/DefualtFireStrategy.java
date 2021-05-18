@@ -2,6 +2,8 @@ package com.chinaliyq.abstractfactory.interfaces.imp;
 
 import com.chinaliyq.abstractfactory.bean.RectBullet;
 import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.decorator.RectDecorator;
+import com.chinaliyq.abstractfactory.decorator.TailDecorator;
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Tank;
 import com.chinaliyq.abstractfactory.interfaces.FireStrategy;
@@ -14,7 +16,7 @@ import com.chinaliyq.util.Group;
  * @Date: 2021/5/12 - 13:43
  * @Version: 1.0
  **/
-public class DefaultFireStrategy implements FireStrategy {
+public class DefualtFireStrategy implements FireStrategy {
     private int tankCenterX,tankCenterY;
     @Override
     public void fire(Tank t) {
@@ -67,10 +69,15 @@ public class DefaultFireStrategy implements FireStrategy {
                 break;
         }
         RectBullet bullet = new RectBullet(tankCenterX, tankCenterY, tank.getDir(),tank.getGroup(),tank.ID);
+//        RectDecorator rectDecorator = new RectDecorator(bullet);
+//        TailDecorator tailDecorator = new TailDecorator(rectDecorator);
+//        gameModel.getGameObjects().add(tailDecorator);
         gameModel.getGameObjects().add(bullet);
         //队友和自己不能打队友
-        if (tank.getGroup() == Group.GOOD)
+        if (tank.getGroup() == Group.GOOD){
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();
+        }
+
     }
 
 }

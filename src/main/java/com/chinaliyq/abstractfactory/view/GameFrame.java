@@ -63,7 +63,9 @@ public class GameFrame extends Frame {
         boolean bUp = false;
         boolean bRight = false;
         boolean bDown = false;
-        private int countVK_U =0;
+        private int countVK_K =0;
+        private int countVK_NUMPAD1 =0;
+        private int countVK_CONTROL =0;
         @Override
         public void keyTyped(KeyEvent e) {
 
@@ -98,9 +100,6 @@ public class GameFrame extends Frame {
             case KeyEvent.VK_DOWN:
                 gameModel.player_two.bDown = true;
                 break;
-            case KeyEvent.VK_NUMPAD0:
-                gameModel.player_two.fire();
-                break;
             default:
                 break;
             }
@@ -128,19 +127,20 @@ public class GameFrame extends Frame {
                 case KeyEvent.VK_J:
                    this.playerFire(gameModel.player_one);
                     break;
-                case KeyEvent.VK_I:
+                case KeyEvent.VK_K:
+                    countVK_K = countVK_K == 0 ? 1 : 0;
+                    if (countVK_K == 0){
+                        gameModel.player_one.defualtFireStrategy();
+                    }else {
+                        //更新模式
+                        gameModel.player_one.fourDirectionFire();
+                    }
+                    break;
+                case KeyEvent.VK_U:
                     //复活
                     easter(gameModel.player_one);
                     break;
-                case KeyEvent.VK_U:
-                    countVK_U = countVK_U == 0 ? 1 : 0;
-                    if (countVK_U == 0){
-                        gameModel.loadDefaultFactoy();
-                    }else {
-                        //更新模式
-                        gameModel.loadSpecialFactoy();
-                    }
-                    break;
+
                 //玩家2
                 case KeyEvent.VK_LEFT:
                     gameModel.player_two.bLeft = false;
@@ -157,9 +157,26 @@ public class GameFrame extends Frame {
                 case KeyEvent.VK_NUMPAD0:
                     this.playerFire(gameModel.player_two);
                     break;
+                case KeyEvent.VK_NUMPAD1:
+                    countVK_NUMPAD1 = countVK_NUMPAD1 == 0 ? 1 : 0;
+                    if (countVK_NUMPAD1 == 0){
+                        gameModel.player_two.defualtFireStrategy();
+                    }else {
+                        gameModel.player_two.fourDirectionFire();
+                    }
+                    break;
                 case KeyEvent.VK_NUMPAD7:
                     //复活
                     easter(gameModel.player_two);
+                    break;
+                    //切换工厂对象
+                case KeyEvent.VK_CONTROL:
+                    countVK_CONTROL = countVK_CONTROL == 0 ? 1 : 0;
+                    if (countVK_CONTROL == 0){
+                        gameModel.loadDefaultFactoy();
+                    }else {
+                        gameModel.loadSpecialFactoy();
+                    }
                     break;
                 default:
                     break;
@@ -183,11 +200,13 @@ public class GameFrame extends Frame {
         }
 
         private void playerFire(BaseTank tank){
-            tank.fire();
+            tank.tankFire();
         }
         private void easter(BaseTank tank){
-            tank.live = true;
-            gameModel.getGameObjects().add(tank);
+            if (tank.live == false){
+                tank.live = true;
+                gameModel.getGameObjects().add(tank);
+            }
         }
     }
 }

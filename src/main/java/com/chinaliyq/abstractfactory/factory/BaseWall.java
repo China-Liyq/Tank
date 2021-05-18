@@ -12,7 +12,7 @@ import java.awt.*;
  * @Version: 1.0
  **/
 public abstract class BaseWall extends GameObject{
-    public int w, h;
+    public int width, height;
 
     public Rectangle rectangle;
 

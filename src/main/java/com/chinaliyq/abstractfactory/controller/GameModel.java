@@ -20,19 +20,21 @@ import java.util.Random;
 public class GameModel {
     public static final int GAME_WIDTH = Integer.parseInt((String) PropertyMgr.getValue("gomeWidth"));
     public static final int GAME_HEIGHT = Integer.parseInt((String)PropertyMgr.getValue("gameHeight"));
-    private static final String defaultFactory = (String) PropertyMgr.getValue("defaultFactory");
+    private static final String defaultFactory = (String) PropertyMgr.getValue("defualtFactory");
+    //还是需要改动，可以后续再装配
     private static final String specialFactory = (String) PropertyMgr.getValue("specialFactory");
 
     private static final GameModel GAME_MODEL =new GameModel();
 
-//    private java.util.List<BaseTank> tanks =new ArrayList();
-//    private java.util.List<BaseBullet> bullets =new ArrayList();
-//    private List<BaseExplode> explodes =new ArrayList();
     private List<GameObject> gameObjects = new ArrayList<>();
+    //    private java.util.List<BaseTank> tanks =new ArrayList();
+    //    private java.util.List<BaseBullet> bullets =new ArrayList();
+    //    private List<BaseExplode> explodes =new ArrayList();
 //    public Collider bulletTankCollider = new BulletTankCollider();
 //    public Collider tankAndTankCollider = new TankAndTankCollider();
     private ColliderChain colliderChain = new ColliderChain();
     public GameFactory gameFactory;
+    private Random random = new Random();
 
     public int countTanks = 0;
     public int countBullets = 0;
@@ -45,10 +47,6 @@ public class GameModel {
     static {
         GAME_MODEL.init();
     }
-    public static GameModel getInstance(){
-        return GAME_MODEL;
-    }
-
     public void paint(Graphics g){
         Color color = g.getColor();
         g.setColor(Color.white);
@@ -60,8 +58,9 @@ public class GameModel {
         g.drawString("玩家1杀敌数：" + player_one.score,12,630);
         g.drawString("玩家2杀敌数：" + player_two.score,12,660);
         g.setColor(Color.PINK);
-        String comment = "玩家1移动：左下右上ASDW，射击K，切换子弹U，复活I;玩家2移动：方向键左下右上，射击0，切换子弹U，复活7;";
-        g.drawString(comment,300,700);
+        String instruction = "玩家1移动：左下右上ASDW，射击J，切换子弹K,复活U; " +
+                         "玩家2移动：方向键左下右上，射击0，切换子弹1，复活7;";
+        g.drawString(instruction,300,700);
         g.setColor(color);
 
         for (int i = 0; i < gameObjects.size(); i++) {
@@ -75,10 +74,12 @@ public class GameModel {
             }
         }
         this.countBaseObjetct();
-        //画物件
+        this.createBadTank();
+/**
+         //画物件
 //        player_one.paint(g);
 //        player_two.paint(g);
-/**       for (int i = 0; i < tanks.size(); i++) {
+    for (int i = 0; i < tanks.size(); i++) {
 //            tanks.get(i).paint(g);
 //        }
 //        for (int i = 0; i < bullets.size(); i++) {
@@ -96,10 +97,9 @@ public class GameModel {
 //        }
  */
     }
+
     public void init(){
-        //加载工厂来更改爆炸
-//        this.loadFactoy(defaultFactory);
-//        this.loadFactoy(specialFactory);
+        //加载工厂来可更改爆炸
         loadDefaultFactoy();
         //创建敌人
         this.badTanks();
@@ -107,6 +107,18 @@ public class GameModel {
         this.goodTanks();
 
         this.addWall(20);
+    }
+
+    //创建敌方坦克
+    public void createBadTank(){
+        if (countTanks > 0 && countTanks < 5 && GAME_MODEL != null){
+            int randNum = random.nextInt(6) + 1;
+            for (int i = 0; i < randNum; i++) {
+                BaseTank tank = gameFactory.createTank(100 + 80 * i , 50, Direction.DOWN, Group.BAD, 0);
+                tank.moving = true;
+                gameObjects.add(tank);
+            }
+        }
     }
     //默认
     public void loadDefaultFactoy(){
@@ -117,7 +129,7 @@ public class GameModel {
             e.printStackTrace();
         }
     }
-    //默认
+    //特殊--对接工厂来创建的对象
     public void loadSpecialFactoy(){
         //加载工厂
         try {
@@ -128,7 +140,6 @@ public class GameModel {
     }
     public void badTanks(){
         int badTankCount = Integer.parseInt((String) PropertyMgr.getValue("initTankCount"));
-
         for (int i = 0; i < badTankCount; i++) {
             BaseTank tank = gameFactory.createTank(50 + 80 * i, 200, Direction.DOWN, Group.BAD,0);
             tank.moving = true;
@@ -142,15 +153,16 @@ public class GameModel {
         gameObjects.add(player_one);
         gameObjects.add(player_two);
     }
-    private Random random = new Random();
     public void addWall(int count){
+        int width = 50, height = 50 , border = 8;
         for (int i = 0; i < count; i++) {
-            int x = random.nextInt(GAME_WIDTH - 16) + 8;
+            int x = random.nextInt(GAME_WIDTH - 16-50) + 8;
             int y = random.nextInt(GAME_HEIGHT - 16) + 8;
             BaseWall wall = gameFactory.createWall(x, y, 50, 50);
             gameObjects.add(wall);
         }
     }
+
     public void countBaseObjetct(){
         countTanks = 0 ;
         countBullets = 0;
@@ -158,7 +170,7 @@ public class GameModel {
         countWalls = 0;
         for (int i = 0; i < gameObjects.size(); i++) {
             GameObject gameObject = gameObjects.get(i);
-            if (gameObject instanceof BaseTank){
+            if (gameObject instanceof BaseTank && ((BaseTank) gameObject).ID == 0){
                 countTanks++;
             }else if (gameObject instanceof BaseBullet){
                 countBullets++;
@@ -170,6 +182,9 @@ public class GameModel {
         }
     }
 
+    public static GameModel getInstance(){
+        return GAME_MODEL;
+    }
 
 
     public GameFactory getGameFactory() {

@@ -20,7 +20,6 @@ import java.awt.image.BufferedImage;
 //@SuppressWarnings("all")
 public class DefualtBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
-    private Direction dir;
     private BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
     private int fillWidth = 20,fillHeight = 20;
@@ -36,6 +35,16 @@ public class DefualtBullet extends BaseBullet {
         g.setColor(color);
         move();
         updateRectangle();
+    }
+
+    @Override
+    public int getWidth() {
+        return bufferedImage==null? fillWidth:bufferedImage.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return bufferedImage==null? fillHeight : bufferedImage.getHeight();
     }
 
     @Override

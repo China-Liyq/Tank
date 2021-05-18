@@ -1,12 +1,12 @@
 package com.chinaliyq.abstractfactory.bean;
 
-import com.chinaliyq.abstractfactory.controller.GameModel;
 import com.chinaliyq.abstractfactory.factory.BaseTank;
-import com.chinaliyq.abstractfactory.view.GameFrame;
 import com.chinaliyq.abstractfactory.interfaces.FireStrategy;
 import com.chinaliyq.abstractfactory.interfaces.IExplode;
-import com.chinaliyq.abstractfactory.interfaces.imp.DefaultFireStrategy;
 import com.chinaliyq.abstractfactory.interfaces.imp.DefaultIExplode;
+import com.chinaliyq.abstractfactory.observer.TankFireEvent;
+import com.chinaliyq.abstractfactory.observer.TankFireHandler;
+import com.chinaliyq.abstractfactory.observer.TankFireObserver;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 import com.chinaliyq.util.PropertyMgr;
@@ -14,6 +14,7 @@ import com.chinaliyq.util.ResourceMgr;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 /**
  * @Author: liyq
@@ -23,11 +24,17 @@ import java.awt.image.BufferedImage;
  **/
 public class RectTank extends BaseTank {
     private final static int SPEED = Integer.parseInt((String)PropertyMgr.getValue("tankSpeed"));
+    private final static String DEFAULTFIRE = (String) PropertyMgr.getValue("defaultFire");
+    private final static String FOURDIRECTIONFIRE = (String) PropertyMgr.getValue("fourDirectionFire");
+    private final static String DEFAULTIEXPLODE = (String) PropertyMgr.getValue("defaultIExplode");
+    private final static String BOMIEXPLODE = (String) PropertyMgr.getValue("bomIExplode");
+
     private static Direction[] directions = Direction.values();
     private int index = 0;
     private int count = 0;
     public int boundsWith = 8;
     private BufferedImage bufferedImage;
+
     private FireStrategy fireStrategy;
     private IExplode explode;
 
@@ -70,6 +77,16 @@ public class RectTank extends BaseTank {
         this.badTankfire();
         this.changShape();
         this.updateRectangle();
+    }
+
+    @Override
+    public int getWidth() {
+        return bufferedImage.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return bufferedImage.getHeight();
     }
 
     @Override
@@ -126,7 +143,9 @@ public class RectTank extends BaseTank {
                 y += SPEED;
                 break;
         }
-        this.boundsCheck();
+        if (this.boundsCheck() && group == Group.BAD){
+            randomDirection();
+        };
         rectangle.x = this.x;
         rectangle.y = this.y;
 
@@ -137,20 +156,25 @@ public class RectTank extends BaseTank {
         this.x = oldX;
         this.y = oldY;
     }
-    private void boundsCheck() {
+    private boolean boundsCheck() {
         boundsWith = bufferedImage.getWidth() / 2;
         if (this.x < boundsWith) {
             x = boundsWith;
+            return true;
         }
         else if ((this.x + bufferedImage.getWidth() + boundsWith) >= gameModel.GAME_WIDTH) {
             this.x = gameModel.GAME_WIDTH - bufferedImage.getWidth() - boundsWith;
+            return true;
         }
         if (this.y < boundsWith +10){
             y = boundsWith + 10;
+            return true;
         }
         else if ((this.y + bufferedImage.getHeight()+boundsWith)>= gameModel.GAME_HEIGHT) {
             this.y = gameModel.GAME_HEIGHT - bufferedImage.getHeight() - boundsWith;
+            return true;
         }
+        return false;
     }
 
     private void randomDirection() {
@@ -164,56 +188,66 @@ public class RectTank extends BaseTank {
         rectangle.width = bufferedImage.getWidth();
         rectangle.height = bufferedImage.getHeight();
     }
-
-    @Override
-    public void fire() {
-        if (live == true) fireStrategy.factoryfire(this);
-    }
+    //电脑开启和方向切换
     public void badTankfire(){
         //电脑自动开枪
         if (this.group == Group.BAD && random.nextInt(100) > 98) this.fire();
         //电脑移动
         if (this.group == Group.BAD && random.nextInt(100) > 90) randomDirection();
     }
-    //获取开枪等 的模式
-    private void LoadFireStrategy(){
-        if (this.group == Group.GOOD){
-            String goodFS = (String) PropertyMgr.getValue("goodFS");
-            try {
-                fireStrategy = (FireStrategy) Class.forName(goodFS).getDeclaredConstructor().newInstance();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }else {
-            fireStrategy = new DefaultFireStrategy();
+    @Override
+    public void fire() {
+        if (live == true) fireStrategy.factoryfire(this);
+    }
+    //获取开枪等 的模式-默认
+    private void LoadStrategy(){
+        this.defualtFireStrategy();
+
+    }
+    @Override
+    public void defualtFireStrategy(){
+        try {
+            fireStrategy = (FireStrategy) Class.forName(DEFAULTFIRE).getDeclaredConstructor().newInstance();
+            explode = (IExplode) Class.forName(DEFAULTIEXPLODE).getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         explode = new DefaultIExplode();
     }
+    @Override
+    public void fourDirectionFire(){
+        try {
+            fireStrategy = (FireStrategy) Class.forName(FOURDIRECTIONFIRE).getDeclaredConstructor().newInstance();
+            explode = (IExplode) Class.forName(BOMIEXPLODE).getDeclaredConstructor().newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void tankFire() {
+        for (int i = 0; i < tankFireObservers.size(); i++) {
+            tankFireObservers.get(i).actionOnFire(tankFireEvent);
+        }
+    }
+
     public RectTank(int x, int y, Direction dir, Group group) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-
         this.group = group;
-        this.LoadFireStrategy();
+        this.LoadStrategy();
     }
     public RectTank(int x, int y, Direction dir, Group group,int id) {
         this.x = x;
         this.y = y;
         this.dir = dir;
-
         this.group = group;
         this.ID = id;
-        this.LoadFireStrategy();
-    }
-    public RectTank(int x, int y, Direction dir, Group group, Boolean moving) {
-        this.x = x;
-        this.y = y;
-        this.dir = dir;
-
-        this.group = group;
-        this.moving =moving;
-        this.LoadFireStrategy();
+        this.LoadStrategy();
+        tankFireEvent = new TankFireEvent(this);
+        tankFireObservers =new ArrayList<>();
+        tankFireObservers.add(new TankFireHandler());
     }
 
     public void setX(int x) {
@@ -371,4 +405,5 @@ public class RectTank extends BaseTank {
     public void setTankDowns(BufferedImage[] tankDowns) {
         TankDowns = tankDowns;
     }
+
 }

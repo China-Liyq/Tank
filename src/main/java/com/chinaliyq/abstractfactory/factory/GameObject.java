@@ -11,9 +11,11 @@ import java.awt.*;
  * @Version: 1.0
  **/
 public abstract class GameObject {
+    public int x, y;
     //持有画板的对象来画画
     public GameModel gameModel = GameModel.getInstance();
-    public int x, y;
 
     public abstract void paint(Graphics g);
+    public abstract int getWidth();
+    public abstract int getHeight();
 }

@@ -1,6 +1,8 @@
 package com.chinaliyq.abstractfactory.interfaces.imp;
 
+import com.chinaliyq.abstractfactory.bean.RectBullet;
 import com.chinaliyq.abstractfactory.bean.RectTank;
+import com.chinaliyq.abstractfactory.decorator.RectDecorator;
 import com.chinaliyq.abstractfactory.factory.BaseBullet;
 import com.chinaliyq.entity.Bullet;
 import com.chinaliyq.entity.Tank;
@@ -73,14 +75,27 @@ public class FourDirectionFireStrategy implements FireStrategy {
                 tankCenterY = t.getY() + t.getBufferedImage().getHeight();
                 break;
         }
-        BaseBullet bullet1 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.UP, t.getGroup(), t.ID);
-        BaseBullet bullet2 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.DOWN, t.getGroup(), t.ID);
-        BaseBullet bullet3 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.RIGHT, t.getGroup(), t.ID);
-        BaseBullet bullet4 = gameModel.getGameFactory().createBullet(tankCenterX, tankCenterY, Direction.LEFT, t.getGroup(), t.ID);
-        gameModel.getGameObjects().add(bullet1);
-        gameModel.getGameObjects().add(bullet2);
-        gameModel.getGameObjects().add(bullet3);
-        gameModel.getGameObjects().add(bullet4);
+
+        Direction[] values = Direction.values();
+        for (int i = 0; i < values.length; i++) {
+            gameModel.getGameObjects().add(new RectBullet(tankCenterX,tankCenterY,values[i],t.group,t.ID));
+        }
+//        BaseBullet bullet1 = new RectBullet(tankCenterX, tankCenterY, Direction.UP, t.getGroup(), t.ID);
+//        BaseBullet bullet2 = new RectBullet(tankCenterX, tankCenterY, Direction.DOWN, t.getGroup(), t.ID);
+//        BaseBullet bullet3 = new RectBullet(tankCenterX, tankCenterY, Direction.RIGHT, t.getGroup(), t.ID);
+//        BaseBullet bullet4 = new RectBullet(tankCenterX, tankCenterY, Direction.LEFT, t.getGroup(), t.ID);
+//        RectDecorator rectDecorator1 = new RectDecorator(bullet1);
+//        RectDecorator rectDecorator2 = new RectDecorator(bullet2);
+//        RectDecorator rectDecorator3 = new RectDecorator(bullet3);
+//        RectDecorator rectDecorator4 = new RectDecorator(bullet4);
+//        gameModel.getGameObjects().add(rectDecorator1);
+//        gameModel.getGameObjects().add(rectDecorator2);
+//        gameModel.getGameObjects().add(rectDecorator3);
+//        gameModel.getGameObjects().add(rectDecorator4);
+//        gameModel.getGameObjects().add(bullet1);
+//        gameModel.getGameObjects().add(bullet2);
+//        gameModel.getGameObjects().add(bullet3);
+//        gameModel.getGameObjects().add(bullet4);
         //队友不能打队友
         if (t.getGroup() == Group.GOOD)
             new Thread(()->new Audio("audio/tank_fire.wav").play()).start();

@@ -22,11 +22,11 @@ import java.awt.image.BufferedImage;
 //@SuppressWarnings("all")
 public class RectBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
-    private Direction dir;
+//    private Direction dir;
     private boolean live = true;
     private BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
-
+    private int fillWidth = 20,fillHeight = 20;
     @Override
     public void paint(Graphics g) {
         if (!live){
@@ -52,6 +52,16 @@ public class RectBullet extends BaseBullet {
         g.drawImage(bufferedImage,bulletCenterX,bulletCenterY,null);
         move();
         updateRectangle();
+    }
+
+    @Override
+    public int getWidth() {
+        return bufferedImage==null? fillWidth:bufferedImage.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return bufferedImage==null? fillHeight : bufferedImage.getHeight();
     }
 
     @Override

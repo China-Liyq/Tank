@@ -97,7 +97,6 @@ public class TankFrame extends Frame {
                 bullets.get(i).collideWith(tanks.get(j));
             }
         }
-
 //        //画子弹
 //        for (Iterator<Bullet> it = bullets.iterator(); it.hasNext();){
 //            Bullet bullet = it.next();

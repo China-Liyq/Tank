@@ -1,10 +1,9 @@
 package com.chinaliyq.abstractfactory.bean;
 
-import com.chinaliyq.abstractfactory.controller.GameModel;
 import com.chinaliyq.abstractfactory.factory.BaseWall;
-import com.chinaliyq.abstractfactory.factory.GameObject;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 /**
  * @Author: liyq
@@ -13,6 +12,8 @@ import java.awt.*;
  * @Version: 1.0
  **/
 public class DefualtWall extends BaseWall {
+    private BufferedImage bufferedImage;
+    private int fillWidth = 20,fillHeight = 20;
     @Override
     public void paint(Graphics g) {
         if (!live){
@@ -20,15 +21,25 @@ public class DefualtWall extends BaseWall {
         }
         Color color = g.getColor();
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(x,y,w,h);
+        g.fillRect(x,y,width,height);
         g.setColor(color);
+    }
+
+    @Override
+    public int getWidth() {
+        return bufferedImage==null? fillWidth:bufferedImage.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return bufferedImage==null? fillHeight : bufferedImage.getHeight();
     }
 
     public DefualtWall(int x, int y, int w, int h) {
         this.x = x;
         this.y = y;
-        this.w = w;
-        this.h = h;
+        this.width = w;
+        this.height = h;
         this.rectangle = new Rectangle(x,y,w,h);
     }
 

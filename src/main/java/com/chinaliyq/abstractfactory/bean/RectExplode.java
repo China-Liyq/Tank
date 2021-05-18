@@ -34,6 +34,16 @@ public class RectExplode extends BaseExplode {
         }
     }
 
+    @Override
+    public int getWidth() {
+        return bufferedImage.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return bufferedImage.getHeight();
+    }
+
     public RectExplode(int x, int y) {
         this.x = x;
         this.y = y;

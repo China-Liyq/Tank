@@ -1,10 +1,13 @@
 package com.chinaliyq.abstractfactory.factory;
 
 import com.chinaliyq.abstractfactory.controller.GameModel;
+import com.chinaliyq.abstractfactory.observer.TankFireEvent;
+import com.chinaliyq.abstractfactory.observer.TankFireObserver;
 import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 
 import java.awt.*;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -29,9 +32,7 @@ public abstract class BaseTank extends GameObject {
     public Direction[] directions = Direction.values();
     public int ID = 0;
     public int score = 0;
-
 //    public abstract void paint(Graphics g);
-
     public abstract void die();
 
     public abstract int getX();
@@ -44,7 +45,17 @@ public abstract class BaseTank extends GameObject {
 
     public abstract void back();
 
+    public abstract void defualtFireStrategy();
+
+    public abstract void fourDirectionFire();
+
     public Group getGroup() {
         return group;
     }
+
+    public List<TankFireObserver> tankFireObservers;
+    public TankFireEvent tankFireEvent;
+
+    public abstract void tankFire();
+
 }

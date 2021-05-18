@@ -1,6 +1,7 @@
 package com.chinaliyq.abstractfactory.factory;
 
 import com.chinaliyq.abstractfactory.controller.GameModel;
+import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 
 import java.awt.*;
@@ -19,6 +20,8 @@ public abstract class BaseBullet extends GameObject {
     public Group group = Group.BAD;
 
     public int ID = 0;
+
+    public Direction dir;
 
     public abstract void collideWith(BaseTank tank);
 

@@ -1,7 +1,7 @@
 package com.chinaliyq.entity;
 
 import com.chinaliyq.abstractfactory.interfaces.FireStrategy;
-import com.chinaliyq.abstractfactory.interfaces.imp.DefaultFireStrategy;
+import com.chinaliyq.abstractfactory.interfaces.imp.DefualtFireStrategy;
 import com.chinaliyq.abstractfactory.interfaces.imp.FourDirectionFireStrategy;
 import com.chinaliyq.util.*;
 import com.chinaliyq.view.TankFrame;
@@ -30,7 +30,7 @@ public class Tank {
     private Group group = Group.BAD;
     private int index = 0;
     private int count = 0;
-    private FireStrategy defaultFireStrategy = new DefaultFireStrategy();
+    private FireStrategy defaultFireStrategy = new DefualtFireStrategy();
     private FireStrategy fourDirectionFireStrategy = new FourDirectionFireStrategy();
     private FireStrategy fireStrategy;
 
@@ -201,7 +201,7 @@ public class Tank {
                 e.printStackTrace();
             }
         }else {
-            fireStrategy = new DefaultFireStrategy();
+            fireStrategy = new DefualtFireStrategy();
         }
     }
 

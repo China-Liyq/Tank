@@ -21,8 +21,9 @@ public class DefualtExplode extends BaseExplode {
     private BufferedImage bufferedImage;
     private int explodeCenterX,explodeCenterY;
     private Group group = Group.BAD;
-
     private int step = 0;
+    private int fillWidth = 20,fillHeight = 20;
+
     @Override
     public void paint(Graphics g) {
         bufferedImage = ResourceMgr.defualtExplodes[step++];
@@ -32,6 +33,16 @@ public class DefualtExplode extends BaseExplode {
         if (step >= ResourceMgr.defualtExplodes.length){
             gameModel.getGameObjects().remove(this);
         }
+    }
+
+    @Override
+    public int getWidth() {
+        return bufferedImage==null? fillWidth:bufferedImage.getWidth();
+    }
+
+    @Override
+    public int getHeight() {
+        return bufferedImage==null? fillHeight : bufferedImage.getHeight();
     }
 
     public DefualtExplode(int x, int y) {
