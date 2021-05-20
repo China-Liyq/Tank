@@ -20,7 +20,7 @@ import java.awt.image.BufferedImage;
 //@SuppressWarnings("all")
 public class DefualtBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
-    private BufferedImage bufferedImage;
+//    private transient BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
     private int fillWidth = 20,fillHeight = 20;
     @Override
@@ -39,12 +39,12 @@ public class DefualtBullet extends BaseBullet {
 
     @Override
     public int getWidth() {
-        return bufferedImage==null? fillWidth:bufferedImage.getWidth();
+        return fillWidth;
     }
 
     @Override
     public int getHeight() {
-        return bufferedImage==null? fillHeight : bufferedImage.getHeight();
+        return fillHeight;
     }
 
     @Override
@@ -128,13 +128,9 @@ public class DefualtBullet extends BaseBullet {
     private void updateRectangle(){
         rectangle.x = x;
         rectangle.y = y;
-        if (bufferedImage!=null){
-            rectangle.width = bufferedImage.getWidth();
-            rectangle.height = bufferedImage.getHeight();
-        }else {
-            rectangle.width = fillWidth;
-            rectangle.height = fillHeight;
-        }
+        rectangle.width = fillWidth;
+        rectangle.height = fillHeight;
+
     }
 
     public boolean isLive() {
@@ -159,14 +155,6 @@ public class DefualtBullet extends BaseBullet {
 
     public Direction getDir() {
         return dir;
-    }
-
-    public BufferedImage getBufferedImage() {
-        return bufferedImage;
-    }
-
-    public void setBufferedImage(BufferedImage bufferedImage) {
-        this.bufferedImage = bufferedImage;
     }
 
     public void setDir(Direction dir) {

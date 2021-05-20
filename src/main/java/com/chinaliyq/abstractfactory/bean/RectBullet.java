@@ -24,7 +24,7 @@ public class RectBullet extends BaseBullet {
     private static final int SPEED = Integer.parseInt((String)PropertyMgr.getValue("bulletSpeed"));
 //    private Direction dir;
     private boolean live = true;
-    private BufferedImage bufferedImage;
+    private transient BufferedImage bufferedImage;
     private int bulletCenterX,bulletCenterY;
     private int fillWidth = 20,fillHeight = 20;
     @Override

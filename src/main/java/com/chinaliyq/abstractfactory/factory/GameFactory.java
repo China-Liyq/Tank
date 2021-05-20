@@ -6,6 +6,7 @@ import com.chinaliyq.util.Direction;
 import com.chinaliyq.util.Group;
 
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * @Author: liyq
@@ -13,7 +14,7 @@ import java.awt.*;
  * @Date: 2021/5/12 - 17:11
  * @Version: 1.0
  **/
-public abstract class GameFactory {
+public abstract class GameFactory implements Serializable {
 
     public abstract BaseTank createTank(int x, int y, Direction dir, Group group, int id);
 

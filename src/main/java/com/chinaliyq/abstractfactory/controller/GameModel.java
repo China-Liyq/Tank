@@ -7,6 +7,7 @@ import com.chinaliyq.util.Group;
 import com.chinaliyq.util.PropertyMgr;
 
 import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,7 +18,7 @@ import java.util.Random;
  * @Date: 2021/5/13 - 18:35
  * @Version: 1.0
  **/
-public class GameModel {
+public class GameModel implements Serializable {
     public static final int GAME_WIDTH = Integer.parseInt((String) PropertyMgr.getValue("gomeWidth"));
     public static final int GAME_HEIGHT = Integer.parseInt((String)PropertyMgr.getValue("gameHeight"));
     private static final String defaultFactory = (String) PropertyMgr.getValue("defualtFactory");
@@ -59,7 +60,7 @@ public class GameModel {
         g.drawString("玩家2杀敌数：" + player_two.score,12,660);
         g.setColor(Color.PINK);
         String instruction = "玩家1移动：左下右上ASDW，射击J，切换子弹K,复活U; " +
-                         "玩家2移动：方向键左下右上，射击0，切换子弹1，复活7;";
+                         "玩家2移动：方向键左下右上，射击NUM0，切换子弹NUM1，复活NUM7;\n"+"保存1，加载2";
         g.drawString(instruction,300,700);
         g.setColor(color);
 
@@ -182,6 +183,39 @@ public class GameModel {
         }
     }
 
+    public void save(){
+        File file = new File("src/main/resources/data/tank.data");
+        System.out.println(file.getPath());
+        System.out.println(file.getAbsolutePath());
+        try(
+                FileOutputStream fileOutputStream = new FileOutputStream(file);
+                ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+                ) {
+
+            objectOutputStream.writeObject(player_one);
+            objectOutputStream.writeObject(player_two);
+            objectOutputStream.writeObject(gameObjects);
+            System.out.println("保存成功!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void load() {
+        File file = new File("src/main/resources/data/tank.data");
+        System.out.println(file.getPath());
+        System.out.println(file.getAbsolutePath());
+        try(
+                FileInputStream fileInputStream = new FileInputStream(file);
+                ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        ) {
+            player_one = (BaseTank) objectInputStream.readObject();
+            player_two = (BaseTank) objectInputStream.readObject();
+            gameObjects = (List) objectInputStream.readObject();
+            System.out.println("读取成功!");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     public static GameModel getInstance(){
         return GAME_MODEL;
     }
@@ -218,4 +252,6 @@ public class GameModel {
     public void setPlayer_two(BaseTank player_two) {
         this.player_two = player_two;
     }
+
+
 }

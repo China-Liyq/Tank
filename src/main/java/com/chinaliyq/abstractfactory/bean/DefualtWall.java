@@ -12,7 +12,7 @@ import java.awt.image.BufferedImage;
  * @Version: 1.0
  **/
 public class DefualtWall extends BaseWall {
-    private BufferedImage bufferedImage;
+    private transient BufferedImage bufferedImage;
     private int fillWidth = 20,fillHeight = 20;
     @Override
     public void paint(Graphics g) {

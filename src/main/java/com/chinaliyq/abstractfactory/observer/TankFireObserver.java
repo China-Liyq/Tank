@@ -8,6 +8,6 @@ import java.io.Serializable;
  * @Date: 2021/5/16 - 22:20
  * @Version: 1.0
  **/
-public interface TankFireObserver {
+public interface TankFireObserver extends Serializable{
     void actionOnFire(TankFireEvent event);
 }

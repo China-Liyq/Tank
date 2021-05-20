@@ -33,15 +33,15 @@ public class RectTank extends BaseTank {
     private int index = 0;
     private int count = 0;
     public int boundsWith = 8;
-    private BufferedImage bufferedImage;
+    private transient BufferedImage bufferedImage;
 
     private FireStrategy fireStrategy;
     private IExplode explode;
 
-    private BufferedImage[] TankLefts;
-    private BufferedImage[] TankUps;
-    private BufferedImage[] TankRights;
-    private BufferedImage[] TankDowns;
+    private transient BufferedImage[] TankLefts;
+    private transient BufferedImage[] TankUps;
+    private transient BufferedImage[] TankRights;
+    private transient BufferedImage[] TankDowns;
     private int explodeX,explodeY;
     private int tankCenterX,tankCenterY;
 

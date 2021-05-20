@@ -140,6 +140,12 @@ public class GameFrame extends Frame {
                     //复活
                     easter(gameModel.player_one);
                     break;
+                case KeyEvent.VK_1:
+                    gameModel.save();
+                    break;
+                case KeyEvent.VK_2:
+                    gameModel.load();
+                    break;
 
                 //玩家2
                 case KeyEvent.VK_LEFT:

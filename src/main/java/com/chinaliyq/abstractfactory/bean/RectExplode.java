@@ -18,7 +18,7 @@ import java.awt.image.BufferedImage;
  **/
 public class RectExplode extends BaseExplode {
     private boolean live = true;
-    private BufferedImage bufferedImage;
+    private transient BufferedImage bufferedImage;
     private int explodeCenterX,explodeCenterY;
     private Group group = Group.BAD;
 
