@@ -49,21 +49,6 @@ public class GameModel implements Serializable {
         GAME_MODEL.init();
     }
     public void paint(Graphics g){
-        Color color = g.getColor();
-        g.setColor(Color.white);
-        g.drawString("坦克的数量：" + countTanks,12,60);
-        g.drawString("子弹的数量：" + countBullets,12,85);
-        g.drawString("爆炸的数量：" + countExplodes,12,110);
-        g.drawString("土墙的数量：" + countWalls,12,135);
-        g.setColor(Color.red);
-        g.drawString("玩家1杀敌数：" + player_one.score,12,630);
-        g.drawString("玩家2杀敌数：" + player_two.score,12,660);
-        g.setColor(Color.PINK);
-        String instruction = "玩家1移动：左下右上ASDW，射击J，切换子弹K,复活U; " +
-                         "玩家2移动：方向键左下右上，射击NUM0，切换子弹NUM1，复活NUM7;\n"+"保存1，加载2";
-        g.drawString(instruction,300,700);
-        g.setColor(color);
-
         for (int i = 0; i < gameObjects.size(); i++) {
             gameObjects.get(i).paint(g);
         }
@@ -97,6 +82,20 @@ public class GameModel implements Serializable {
 //            }
 //        }
  */
+        Color color = g.getColor();
+        g.setColor(Color.white);
+        g.drawString("坦克的数量：" + countTanks,12,60);
+        g.drawString("子弹的数量：" + countBullets,12,85);
+        g.drawString("爆炸的数量：" + countExplodes,12,110);
+        g.drawString("土墙的数量：" + countWalls,12,135);
+        g.setColor(Color.red);
+        g.drawString("玩家1杀敌数：" + player_one.score,12,630);
+        g.drawString("玩家2杀敌数：" + player_two.score,12,660);
+        g.setColor(Color.PINK);
+        String instruction = "玩家1移动：左下右上ASDW，射击J，切换子弹K,复活U; " +
+                "玩家2移动：方向键左下右上，射击NUM0，切换子弹NUM1，复活NUM7;\n"+"保存1，加载2";
+        g.drawString(instruction,200,700);
+        g.setColor(color);
     }
 
     public void init(){
